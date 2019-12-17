@@ -39,54 +39,73 @@ int main(int argc, char** argv) {
 
      TrackballCamera camera;
 
+     glm::vec3 posSommets[] = {
+        // v0
+        glm::vec3(-0.5, 0.5, 0.0),
+        // v1
+        glm::vec3(0.5, 0.5, 0.0),
+        // v2
+        glm::vec3(-0.5, -0.5, 0.0),
+        // v3
+        glm::vec3(0.5, -0.5, 0.0),
+        // v4
+        glm::vec3(-0.5, -0.5, -1.0),
+        // v5
+        glm::vec3(-0.5, 0.5, -1.0),
+        // v6
+        glm::vec3(0.5, -0.5, -1.0),
+        // v7
+        glm::vec3(0.5, 0.5, -1.0),
+    };
+
      Vertex3DColor vertices[] = {
         // face devant
-        Vertex3DColor(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, 0.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, 0.0), glm::vec3(0, 0, 1)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, 0.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, 0.0), glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[1], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[2], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[1], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[2], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[3], glm::vec3(0, 1, 0)),
 
         //face coté gauche
-        Vertex3DColor(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, 0.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0, 0, 1)),
-        Vertex3DColor(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(-0.5, 0.5, -1.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[0], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[2], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[0], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[5], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
 
         //face coté droite
-        Vertex3DColor(glm::vec3(0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, 0.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, -1.0), glm::vec3(0, 0, 1)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, -1.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, -1.0), glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[1], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[6], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[1], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[7], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[6], glm::vec3(0, 0, 1)),
 
         //face dessous
-        Vertex3DColor(glm::vec3(-0.5, -0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, 0.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0, 0, 1)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, -1.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[2], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[4], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[6], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[4], glm::vec3(0, 0, 1)),
 
         //face dessus
-        Vertex3DColor(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, 0.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, -1.0), glm::vec3(0, 0, 1)),
-        Vertex3DColor(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(-0.5, 0.5, -1.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, -1.0), glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[1], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[7], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[5], glm::vec3(0, 1, 0)),
+        Vertex3DColor(posSommets[7], glm::vec3(0, 1, 0)),
 
         //face derrière
-        Vertex3DColor(glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(-0.5, 0.5, -1.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, -1.0), glm::vec3(0, 0, 1)),
-        Vertex3DColor(glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0, 1, 0)),
-        Vertex3DColor(glm::vec3(0.5, -0.5, -1.0), glm::vec3(1, 0, 0)),
-        Vertex3DColor(glm::vec3(0.5, 0.5, -1.0), glm::vec3(0, 0, 1))
+        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[5], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[7], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[6], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[7], glm::vec3(1, 0, 0))
      };
 
      int verticesSize = 36;
@@ -166,7 +185,7 @@ int main(int argc, char** argv) {
                     }
                     break;
                 case SDL_MOUSEWHEEL:
-                    camera.moveFront(e.motion.xrel);
+                    camera.moveFront(e.wheel.y);
                     break;
             }
          }
