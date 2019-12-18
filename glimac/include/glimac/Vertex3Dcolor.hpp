@@ -1,10 +1,5 @@
-#pragma once
-
-#include <vector>
-
 #include "common.hpp"
-
-namespace glimac {   
+ 
     // Structure pour les coordonnées couleurs / positions
     struct Vertex3DColor
     {
@@ -19,4 +14,3 @@ namespace glimac {
         this->position = position;
         this->color = color;
     };
-}

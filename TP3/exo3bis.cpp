@@ -7,8 +7,8 @@
 #include <glimac/glm.hpp>
 #include <glimac/Image.hpp>
 #include <glimac/TrackballCamera.hpp>
-#include <glimac/Vertex3Dcolor.hpp>
-#include <glimac/CubeA.hpp>
+#include <glimac/Cube.hpp>
+#include <glimac/Scene.hpp>
 
 using namespace glimac;
 
@@ -26,145 +26,26 @@ int main(int argc, char** argv) {
      std::cout << "OpenGL Version : " << glGetString(GL_VERSION) << std::endl;
      std::cout << "GLEW Version : " << glewGetString(GLEW_VERSION) << std::endl;
     
-    
      FilePath applicationPath(argv[0]);
 
      //charger les shaders
      Program program = loadProgram(applicationPath.dirPath() + argv[1], applicationPath.dirPath() + argv[2]);
      program.use();
 
-    
      /*********************************
      * HERE SHOULD COME THE INITIALIZATION CODE
      *********************************/
 
      TrackballCamera camera;
-/*
-     glm::vec3 posSommets[] = {
-        // p0
-        glm::vec3(-0.5, 0.5, 0.0),
-        // p1
-        glm::vec3(0.5, 0.5, 0.0),
-        // p2
-        glm::vec3(-0.5, -0.5, 0.0),
-        // p3
-        glm::vec3(0.5, -0.5, 0.0),
-        // p4
-        glm::vec3(-0.5, -0.5, -1.0),
-        // p5
-        glm::vec3(-0.5, 0.5, -1.0),
-        // p6
-        glm::vec3(0.5, -0.5, -1.0),
-        // p7
-        glm::vec3(0.5, 0.5, -1.0),
-     };
-
-     Vertex3DColor vertices[] = {
-        // face devant
-        Vertex3DColor(posSommets[0], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[1], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[2], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[1], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[2], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
-
-        //face coté gauche
-        Vertex3DColor(posSommets[0], glm::vec3(-1, 0, 0)),
-        Vertex3DColor(posSommets[2], glm::vec3(-1, 0, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(-1, 0, 0)),
-        Vertex3DColor(posSommets[0], glm::vec3(-1, 0, 0)),
-        Vertex3DColor(posSommets[5], glm::vec3(-1, 0, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(-1, 0, 0)),
-
-        //face dessous
-        Vertex3DColor(posSommets[2], glm::vec3(0, -1, 0)),
-        Vertex3DColor(posSommets[3], glm::vec3(0, -1, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(0, -1, 0)),
-        Vertex3DColor(posSommets[3], glm::vec3(0, -1, 0)),
-        Vertex3DColor(posSommets[6], glm::vec3(0, -1, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(0, -1, 0)),
-
-        //face derrière
-        Vertex3DColor(posSommets[4], glm::vec3(0, 0, -1)),
-        Vertex3DColor(posSommets[5], glm::vec3(0, 0, -1)),
-        Vertex3DColor(posSommets[7], glm::vec3(0, 0, -1)),
-        Vertex3DColor(posSommets[4], glm::vec3(0, 0, -1)),
-        Vertex3DColor(posSommets[6], glm::vec3(0, 0, -1)),
-        Vertex3DColor(posSommets[7], glm::vec3(0, 0, -1)),
-
-        //face dessus
-        Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[1], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[7], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[5], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[7], glm::vec3(0, 1, 0)),
-
-        //face coté droite
-        Vertex3DColor(posSommets[1], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[3], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[6], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[1], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[7], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[6], glm::vec3(1, 0, 0)),
-     };
-
-     int verticesSize = 36;
-*/
+     Scene scene;
 
      Cube cube;
-/*
-     GLuint vbo;
-     glGenBuffers(1, &vbo);
-     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-     glBufferData(GL_ARRAY_BUFFER, verticesSize*sizeof(Vertex3DColor), vertices, GL_STATIC_DRAW);
-     glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-     GLuint vao;
-     glGenVertexArrays(1, &vao);
-     glBindVertexArray(vao);
-
-     const GLuint VERTEX_ATTR_POSITION = 0;
-     const GLuint VERTEX_ATTR_NORMAL = 1;
-     const GLuint VERTEX_ATTR_TEXCOORDS = 2;
-
-     glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
-     glEnableVertexAttribArray(VERTEX_ATTR_NORMAL);
-     glEnableVertexAttribArray(VERTEX_ATTR_TEXCOORDS);
-
-     glBindBuffer(GL_ARRAY_BUFFER, vbo);
+     Cube cube2;
      
-     glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex3DColor), (const GLvoid*)(offsetof(Vertex3DColor, position)));
-     glVertexAttribPointer(VERTEX_ATTR_NORMAL, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex3DColor), (const GLvoid*)(offsetof(Vertex3DColor, color)));
-    // glVertexAttribPointer(VERTEX_ATTR_TEXCOORDS, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex3DColor), (const GLvoid*)(offsetof(ShapeVertex, texCoords)));
+     cube.initialVboVao();
+     cube2.initialVboVao();
 
-     glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-     glBindVertexArray(0);
-*/
-     // Récuperer les variables uniforms
-     GLint uMVPMatrix = glGetUniformLocation(program.getGLId(), "uMVPMatrix");
-     GLint uMVMatrix = glGetUniformLocation(program.getGLId(), "uMVMatrix");
-     GLint uNormalMatrix = glGetUniformLocation(program.getGLId(), "uNormalMatrix");
-
-     GLint uKd = glGetUniformLocation(program.getGLId(), "uKd");
-     GLint uKs = glGetUniformLocation(program.getGLId(), "uKs");
-     GLint uShininess = glGetUniformLocation(program.getGLId(), "uShininess");
-    // GLint uLightDir_vs = glGetUniformLocation(program.getGLId(), "uLightDir_vs");
-     GLint uLightPos_vs = glGetUniformLocation(program.getGLId(), "uLightPos_vs");
-     GLint uLightIntensity = glGetUniformLocation(program.getGLId(), "uLightIntensity");
-
-     //Active le test de profondeur GPU
-     glEnable(GL_DEPTH_TEST);
-
-     // Calculer la matrice ProjMatrix
-     // 1er param : angle vertical de vure
-     // 2eme : ratio largeur fenetre par hauteur
-     // 3e : near       4e : far       définissent une range de vision sur l'axe de profondeur
-     const glm::mat4 ProjMatrix = glm::perspective(glm::radians(70.f), 800.f/600.f, 0.1f, 100.f);
-     glm::mat4 MVMatrix;
-     glm::mat4 NormalMatrix;
-
+     scene.initMatrice(&program);
 
      // Application loop:
      bool done = false;
@@ -190,51 +71,21 @@ int main(int argc, char** argv) {
             }
          }
 
-         const glm::mat4 ViewMatrix = camera.getViewMatrix();
+         // HERE SHOULD COME THE RENDERING CODE
 
-         /*********************************
-         * HERE SHOULD COME THE RENDERING CODE
-         *********************************/
          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-         // Cube
-         glm::mat4 CubeModelMatrix;
-         glm::mat4 rotationMatrix;
-         glm::vec3 AxeRotation;
-
-         // Rotater la lumière
-         rotationMatrix = glm::rotate(rotationMatrix, windowManager.getTime(), glm::vec3(0, 2, 0)); // Rotatio
-         AxeRotation = glm::vec3(rotationMatrix * glm::vec4(1.f, 1.f, 1.f, 1.f));
-
-         // Renvoi des valeurs des variables uniformes de lumieres
-         glUniform3fv(uKd, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
-         glUniform3fv(uKs, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
-         glUniform1f(uShininess,  2.f);
-         //glUniform3fv(uLightDir_vs, 1, glm::value_ptr(glm::mat3(ViewMatrix)*AxeRotation));
-         glUniform3fv(uLightPos_vs, 1, glm::value_ptr(glm::mat3(ViewMatrix)*AxeRotation));
-         glUniform3fv(uLightIntensity, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
-
-         MVMatrix = ViewMatrix * CubeModelMatrix;
-         NormalMatrix = glm::transpose(glm::inverse(MVMatrix));
-         glUniformMatrix4fv(uMVPMatrix, 1, GL_FALSE, glm::value_ptr(ProjMatrix*MVMatrix));
-         glUniformMatrix4fv(uMVMatrix, 1, GL_FALSE, glm::value_ptr(MVMatrix));
-         glUniformMatrix4fv(uNormalMatrix, 1, GL_FALSE, glm::value_ptr(NormalMatrix));
-
-        //cube.drawCube();
-/*
-         glBindVertexArray(vao);
-         glDrawArrays(GL_TRIANGLES, 0, verticesSize);
-         glBindVertexArray(0);
-*/
-
+         scene.renvoiMatrice(camera);
+         
+         cube.drawCube();
+        
          // Update the display
          windowManager.swapBuffers();
     }
-    //cube.deleteCube();
-/*
+     
+     
      // Libération des ressources
-     glDeleteBuffers(1, &vbo);
-     glDeleteVertexArrays(1, &vao);
-*/
+     cube.deleteCube();
+     cube2.deleteCube();
+
      return EXIT_SUCCESS;
 }

@@ -152,32 +152,32 @@ src/Cone.cpp.s:
 	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.s
 .PHONY : src/Cone.cpp.s
 
-src/Cube.o: src/Cube.cpp.o
+src/CubeA.o: src/CubeA.cpp.o
 
-.PHONY : src/Cube.o
+.PHONY : src/CubeA.o
 
 # target to build an object file
-src/Cube.cpp.o:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cube.cpp.o
-.PHONY : src/Cube.cpp.o
+src/CubeA.cpp.o:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/CubeA.cpp.o
+.PHONY : src/CubeA.cpp.o
 
-src/Cube.i: src/Cube.cpp.i
+src/CubeA.i: src/CubeA.cpp.i
 
-.PHONY : src/Cube.i
+.PHONY : src/CubeA.i
 
 # target to preprocess a source file
-src/Cube.cpp.i:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cube.cpp.i
-.PHONY : src/Cube.cpp.i
+src/CubeA.cpp.i:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/CubeA.cpp.i
+.PHONY : src/CubeA.cpp.i
 
-src/Cube.s: src/Cube.cpp.s
+src/CubeA.s: src/CubeA.cpp.s
 
-.PHONY : src/Cube.s
+.PHONY : src/CubeA.s
 
 # target to generate assembly for a file
-src/Cube.cpp.s:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cube.cpp.s
-.PHONY : src/Cube.cpp.s
+src/CubeA.cpp.s:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/CubeA.cpp.s
+.PHONY : src/CubeA.cpp.s
 
 src/Geometry.o: src/Geometry.cpp.o
 
@@ -407,9 +407,9 @@ help:
 	@echo "... src/Cone.o"
 	@echo "... src/Cone.i"
 	@echo "... src/Cone.s"
-	@echo "... src/Cube.o"
-	@echo "... src/Cube.i"
-	@echo "... src/Cube.s"
+	@echo "... src/CubeA.o"
+	@echo "... src/CubeA.i"
+	@echo "... src/CubeA.s"
 	@echo "... src/Geometry.o"
 	@echo "... src/Geometry.i"
 	@echo "... src/Geometry.s"

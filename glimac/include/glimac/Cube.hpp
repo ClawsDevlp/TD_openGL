@@ -1,7 +1,6 @@
 #pragma once
 
 #include "common.hpp"
-#include "Vertex3Dcolor.hpp"
 
 namespace glimac {
 
@@ -9,19 +8,18 @@ class Cube {
 
 public:
      int nbCoordonnees = 36;
-     GLuint cubeVbo;
-     GLuint cubeVao;
+     GLuint c_Vbo;
+     GLuint c_Vao;
 
-     Cube();
+     Cube() = default;
+     Cube(glm::vec3 pos);
+     void deleteCube();
 
      void initialVboVao();
+     void modifyCube();
      void afficheCube();
-     void deleteCube();
      void drawCube();
 
-    
-    
-private:
 };
     
 }
