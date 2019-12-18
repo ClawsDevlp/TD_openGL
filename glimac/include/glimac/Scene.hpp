@@ -30,7 +30,7 @@ public:
 
      // Méthode
      void initMatrice(Program *program);
-     void renvoiMatrice(TrackballCamera camera);
+     void renvoiMatrice(TrackballCamera camera, glm::mat4 CubeModelMatrix);
      
 
 };

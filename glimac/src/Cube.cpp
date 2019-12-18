@@ -104,13 +104,18 @@ namespace glimac {
       c_Vao = cubeVao;
     }
 
-    void Cube::drawCube(){
+    glm::mat4 Cube::modifieCube(glm::vec3 coord){
+      glm::mat4 CubeModelMatrix;
+      return CubeModelMatrix = glm::translate(CubeModelMatrix, coord); // Translation
+    }
+
+    void Cube::dessinCube(){
       glBindVertexArray(c_Vao);
       glDrawArrays(GL_TRIANGLES, 0, nbCoordonnees);
       glBindVertexArray(0);
     }
 
-    void Cube::deleteCube(){
+    void Cube::supprCube(){
       glDeleteBuffers(1, &c_Vbo);
       glDeleteVertexArrays(1, &c_Vao);
     }

@@ -8,6 +8,7 @@
 #include <glimac/Image.hpp>
 #include <glimac/TrackballCamera.hpp>
 #include <glimac/Cube.hpp>
+#include <glimac/Cursor.hpp>
 #include <glimac/Scene.hpp>
 
 using namespace glimac;
@@ -39,15 +40,19 @@ int main(int argc, char** argv) {
      TrackballCamera camera;
      Scene scene;
 
+     Cursor cursor;
+
      Cube cube;
      Cube cube2;
      
+     cursor.initialVboVao();
      cube.initialVboVao();
      cube2.initialVboVao();
 
      scene.initMatrice(&program);
 
      // Application loop:
+     int axe = 0;
      bool done = false;
      while(!done) {
      
@@ -68,15 +73,31 @@ int main(int argc, char** argv) {
                 case SDL_MOUSEWHEEL:
                     camera.moveFront(e.wheel.y);
                     break;
+                case SDL_KEYDOWN:
+                    // AXE : x=0 y=1 z=2
+                    if (e.key.keysym.scancode == SDL_SCANCODE_X) {
+                        axe = 0;
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_Y) {
+                        axe = 1;
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_W) { // Code W car qwerty
+                        axe = 2; 
+                    }
+
+                    if (e.key.keysym.scancode == SDL_SCANCODE_UP) {
+                        cursor.setCoord(axe, 1);
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_DOWN){
+                        cursor.setCoord(axe, -1);
+                    }
             }
          }
 
          // HERE SHOULD COME THE RENDERING CODE
 
          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-         scene.renvoiMatrice(camera);
+         scene.renvoiMatrice(camera, cube.modifieCube(cursor.coord));
          
-         cube.drawCube();
+         //cube.dessinCube();
+         cursor.dessinCube();
         
          // Update the display
          windowManager.swapBuffers();
@@ -84,8 +105,9 @@ int main(int argc, char** argv) {
      
      
      // Libération des ressources
-     cube.deleteCube();
-     cube2.deleteCube();
+     cube.supprCube();
+     cursor.supprCube();
+     cube2.supprCube();
 
      return EXIT_SUCCESS;
 }

@@ -10,8 +10,8 @@ namespace glimac {
         uKd = glGetUniformLocation(program->getGLId(), "uKd");
         uKs = glGetUniformLocation(program->getGLId(), "uKs");
         uShininess = glGetUniformLocation(program->getGLId(), "uShininess");
-        // GLint uLightDir_vs = glGetUniformLocation(program.getGLId(), "uLightDir_vs");
-        uLightPos_vs = glGetUniformLocation(program->getGLId(), "uLightPos_vs");
+        uLightDir_vs = glGetUniformLocation(program->getGLId(), "uLightDir_vs");
+        //uLightPos_vs = glGetUniformLocation(program->getGLId(), "uLightPos_vs");
         uLightIntensity = glGetUniformLocation(program->getGLId(), "uLightIntensity");
 
         //Active le test de profondeur GPU
@@ -21,23 +21,18 @@ namespace glimac {
         ProjMatrix = glm::perspective(glm::radians(70.f), 800.f/600.f, 0.1f, 100.f);
     }
 
-    void Scene::renvoiMatrice(TrackballCamera camera){
+    void Scene::renvoiMatrice(TrackballCamera camera, glm::mat4 CubeModelMatrix){
          const glm::mat4 ViewMatrix = camera.getViewMatrix();
 
-         // Cube
-         glm::mat4 CubeModelMatrix;
-         glm::mat4 rotationMatrix;
-         glm::vec3 AxeRotation;
-
          // Rotater la lumière
-         //AxeRotation = glm::vec3(rotationMatrix * glm::vec4(1.f, 1.f, 1.f, 1.f));
+         //CubeModelMatrix = glm::vec3(CubeModelMatrix * glm::vec4(1.f, 1.f, 1.f, 1.f));
 
          // Renvoi des valeurs des variables uniformes de lumieres
          glUniform3fv(uKd, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
          glUniform3fv(uKs, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
          glUniform1f(uShininess,  2.f);
-         //glUniform3fv(uLightDir_vs, 1, glm::value_ptr(glm::mat3(ViewMatrix)*AxeRotation));
-         glUniform3fv(uLightPos_vs, 1, glm::value_ptr(glm::mat3(ViewMatrix)*AxeRotation));
+         glUniform3fv(uLightDir_vs, 1, glm::value_ptr(ViewMatrix*CubeModelMatrix));
+         //glUniform3fv(uLightPos_vs, 1, glm::value_ptr(glm::mat3(ViewMatrix)*CubeModelMatrix));
          glUniform3fv(uLightIntensity, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
 
          MVMatrix = ViewMatrix*CubeModelMatrix;

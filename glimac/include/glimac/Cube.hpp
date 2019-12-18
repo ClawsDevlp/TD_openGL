@@ -13,12 +13,12 @@ public:
 
      Cube() = default;
      Cube(glm::vec3 pos);
-     void deleteCube();
+     void supprCube();
 
      void initialVboVao();
-     void modifyCube();
+     glm::mat4 modifieCube(glm::vec3 coord);
      void afficheCube();
-     void drawCube();
+     void dessinCube();
 
 };
     
