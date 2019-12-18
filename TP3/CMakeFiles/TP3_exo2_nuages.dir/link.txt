@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/TP3_exo2_nuages.dir/exo2_nuages.cpp.o  -o TP3_exo2_nuages ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

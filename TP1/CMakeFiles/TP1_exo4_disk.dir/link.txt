@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/TP1_exo4_disk.dir/exo4_disk.cpp.o  -o TP1_exo4_disk ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

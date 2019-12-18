@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/TP1_exo5tris.dir/exo5tris.cpp.o  -o TP1_exo5tris ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

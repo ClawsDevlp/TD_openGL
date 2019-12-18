@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/TP3_SDLtemplate.dir/SDLtemplate.cpp.o  -o TP3_SDLtemplate ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

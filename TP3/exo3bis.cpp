@@ -8,12 +8,13 @@
 #include <glimac/Image.hpp>
 #include <glimac/TrackballCamera.hpp>
 #include <glimac/Vertex3Dcolor.hpp>
+#include <glimac/CubeA.hpp>
 
 using namespace glimac;
 
 int main(int argc, char** argv) {
-    // Initialize SDL and open a window
-    SDLWindowManager windowManager(800, 600, "GLImac");
+     // Initialize SDL and open a window
+     SDLWindowManager windowManager(800, 600, "GLImac");
 
      // Initialize glew for OpenGL3+ support
      GLenum glewInitError = glewInit();
@@ -38,58 +39,58 @@ int main(int argc, char** argv) {
      *********************************/
 
      TrackballCamera camera;
-
+/*
      glm::vec3 posSommets[] = {
-        // v0
+        // p0
         glm::vec3(-0.5, 0.5, 0.0),
-        // v1
+        // p1
         glm::vec3(0.5, 0.5, 0.0),
-        // v2
+        // p2
         glm::vec3(-0.5, -0.5, 0.0),
-        // v3
+        // p3
         glm::vec3(0.5, -0.5, 0.0),
-        // v4
+        // p4
         glm::vec3(-0.5, -0.5, -1.0),
-        // v5
+        // p5
         glm::vec3(-0.5, 0.5, -1.0),
-        // v6
+        // p6
         glm::vec3(0.5, -0.5, -1.0),
-        // v7
+        // p7
         glm::vec3(0.5, 0.5, -1.0),
-    };
+     };
 
      Vertex3DColor vertices[] = {
         // face devant
-        Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[1], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[2], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[1], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[2], glm::vec3(0, 1, 0)),
-        Vertex3DColor(posSommets[3], glm::vec3(0, 1, 0)),
-
-        //face coté gauche
-        Vertex3DColor(posSommets[0], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[2], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[0], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[5], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
-
-        //face coté droite
+        Vertex3DColor(posSommets[0], glm::vec3(0, 0, 1)),
         Vertex3DColor(posSommets[1], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[6], glm::vec3(0, 0, 1)),
+        Vertex3DColor(posSommets[2], glm::vec3(0, 0, 1)),
         Vertex3DColor(posSommets[1], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[7], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[6], glm::vec3(0, 0, 1)),
-
-        //face dessous
         Vertex3DColor(posSommets[2], glm::vec3(0, 0, 1)),
         Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[4], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[3], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[6], glm::vec3(0, 0, 1)),
-        Vertex3DColor(posSommets[4], glm::vec3(0, 0, 1)),
+
+        //face coté gauche
+        Vertex3DColor(posSommets[0], glm::vec3(-1, 0, 0)),
+        Vertex3DColor(posSommets[2], glm::vec3(-1, 0, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(-1, 0, 0)),
+        Vertex3DColor(posSommets[0], glm::vec3(-1, 0, 0)),
+        Vertex3DColor(posSommets[5], glm::vec3(-1, 0, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(-1, 0, 0)),
+
+        //face dessous
+        Vertex3DColor(posSommets[2], glm::vec3(0, -1, 0)),
+        Vertex3DColor(posSommets[3], glm::vec3(0, -1, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(0, -1, 0)),
+        Vertex3DColor(posSommets[3], glm::vec3(0, -1, 0)),
+        Vertex3DColor(posSommets[6], glm::vec3(0, -1, 0)),
+        Vertex3DColor(posSommets[4], glm::vec3(0, -1, 0)),
+
+        //face derrière
+        Vertex3DColor(posSommets[4], glm::vec3(0, 0, -1)),
+        Vertex3DColor(posSommets[5], glm::vec3(0, 0, -1)),
+        Vertex3DColor(posSommets[7], glm::vec3(0, 0, -1)),
+        Vertex3DColor(posSommets[4], glm::vec3(0, 0, -1)),
+        Vertex3DColor(posSommets[6], glm::vec3(0, 0, -1)),
+        Vertex3DColor(posSommets[7], glm::vec3(0, 0, -1)),
 
         //face dessus
         Vertex3DColor(posSommets[0], glm::vec3(0, 1, 0)),
@@ -99,29 +100,28 @@ int main(int argc, char** argv) {
         Vertex3DColor(posSommets[5], glm::vec3(0, 1, 0)),
         Vertex3DColor(posSommets[7], glm::vec3(0, 1, 0)),
 
-        //face derrière
-        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[5], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[7], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[4], glm::vec3(1, 0, 0)),
+        //face coté droite
+        Vertex3DColor(posSommets[1], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[3], glm::vec3(1, 0, 0)),
         Vertex3DColor(posSommets[6], glm::vec3(1, 0, 0)),
-        Vertex3DColor(posSommets[7], glm::vec3(1, 0, 0))
+        Vertex3DColor(posSommets[1], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[7], glm::vec3(1, 0, 0)),
+        Vertex3DColor(posSommets[6], glm::vec3(1, 0, 0)),
      };
 
      int verticesSize = 36;
+*/
 
+     Cube cube;
+/*
      GLuint vbo;
      glGenBuffers(1, &vbo);
-
      glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
      glBufferData(GL_ARRAY_BUFFER, verticesSize*sizeof(Vertex3DColor), vertices, GL_STATIC_DRAW);
-
      glBindBuffer(GL_ARRAY_BUFFER, 0);
 
      GLuint vao;
      glGenVertexArrays(1, &vao);
-
      glBindVertexArray(vao);
 
      const GLuint VERTEX_ATTR_POSITION = 0;
@@ -141,7 +141,7 @@ int main(int argc, char** argv) {
      glBindBuffer(GL_ARRAY_BUFFER, 0);
 
      glBindVertexArray(0);
-
+*/
      // Récuperer les variables uniforms
      GLint uMVPMatrix = glGetUniformLocation(program.getGLId(), "uMVPMatrix");
      GLint uMVMatrix = glGetUniformLocation(program.getGLId(), "uMVMatrix");
@@ -220,17 +220,21 @@ int main(int argc, char** argv) {
          glUniformMatrix4fv(uMVMatrix, 1, GL_FALSE, glm::value_ptr(MVMatrix));
          glUniformMatrix4fv(uNormalMatrix, 1, GL_FALSE, glm::value_ptr(NormalMatrix));
 
+        //cube.drawCube();
+/*
          glBindVertexArray(vao);
          glDrawArrays(GL_TRIANGLES, 0, verticesSize);
          glBindVertexArray(0);
+*/
 
          // Update the display
          windowManager.swapBuffers();
     }
-
+    //cube.deleteCube();
+/*
      // Libération des ressources
      glDeleteBuffers(1, &vbo);
      glDeleteVertexArrays(1, &vao);
-
+*/
      return EXIT_SUCCESS;
 }
