@@ -42,6 +42,9 @@ int main(int argc, char** argv) {
      Scene scene;
      Cursor cursor;
 
+     gestionator.ajoutCube(glm::vec3(3,0,0));
+     gestionator.ajoutCube(glm::vec3(-3,0,0));
+
      scene.initMatrice(&program);
 
      // Application loop:
@@ -88,7 +91,7 @@ int main(int argc, char** argv) {
          }
 
          // HERE SHOULD COME THE RENDERING CODE
-         glClearColor(1., 0., 0., 1.);
+         glClearColor(1., 0., 0.5, 1.);
          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
          
          //scene.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));

@@ -11,8 +11,6 @@ class GestionCube {
 public:
      std::vector<glm::vec3> cubesPositions;
 
-     //std::vector
-
      GLuint positionVbo;
      GLuint c_Vao;
      GLuint sommetVbo;
