@@ -4,7 +4,6 @@
 #include <glimac/Program.hpp>
 #include <glimac/common.hpp>
 #include <glimac/Sphere.hpp>
-#include <glm/gtc/random.hpp>
 #include <glimac/glm.hpp>
 #include <glimac/Image.hpp>
 #include <glimac/TrackballCamera.hpp>

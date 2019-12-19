@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -g  -rdynamic CMakeFiles/TP3_exo3_trackball.dir/exo3_trackball.cpp.o  -o TP3_exo3_trackball ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

@@ -1,17 +1,20 @@
 #pragma once
 
 #include "common.hpp"
-#include "Cube.hpp"
+#include "GestionCube.hpp"
 
 namespace glimac {
 
-class Cursor : public Cube {
+class Cursor {
 
 public:
+     GestionCube cursorCube;
      glm::vec3 coord;
-
-     void setCoord(int axe, int increment);
-     void dessinCube();
+     
+     Cursor();
+     ~Cursor() = default;
+     void changeCoord(int axe, int increment);
+     void dessinCursor();
 };
     
 }

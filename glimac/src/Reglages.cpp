@@ -1,4 +1,4 @@
-#include "glimac/Scene.hpp"
+#include "glimac/Reglages.hpp"
 
 namespace glimac {
 

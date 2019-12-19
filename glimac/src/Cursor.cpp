@@ -2,7 +2,15 @@
 
 namespace glimac {
 
-    void Cursor::setCoord(int axe, int increment){
+    Cursor::Cursor()
+        : coord(0.)
+        {
+            cursorCube.ajoutCube(coord);
+        }
+
+    void Cursor::changeCoord(int axe, int increment){
+        cursorCube.supprCube(coord);
+
         if (axe == 0) {
             coord += glm::vec3(increment, 0, 0);
         } else if (axe == 1) {
@@ -10,12 +18,11 @@ namespace glimac {
         } else if (axe == 2) {
             coord += glm::vec3(0, 0, increment);
         }
+
+        cursorCube.ajoutCube(coord);
     }
 
-    void Cursor::dessinCube(){
-      glBindVertexArray(c_Vao);
-      glDrawArrays(GL_LINES, 0, nbCoordonnees);
-      glBindVertexArray(0);
+    void Cursor::dessinCursor(){
+        cursorCube.dessinCubeWireframe();
     }
-
 }

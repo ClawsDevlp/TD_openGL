@@ -6,10 +6,10 @@
 #include <glm/gtc/random.hpp>
 #include <glimac/glm.hpp>
 #include <glimac/Image.hpp>
+#include <glimac/GestionCube.hpp>
 #include <glimac/TrackballCamera.hpp>
-#include <glimac/Cube.hpp>
 #include <glimac/Cursor.hpp>
-#include <glimac/Scene.hpp>
+#include <glimac/Reglages.hpp>
 
 using namespace glimac;
 
@@ -37,17 +37,10 @@ int main(int argc, char** argv) {
      * HERE SHOULD COME THE INITIALIZATION CODE
      *********************************/
 
+     GestionCube gestionator;
      TrackballCamera camera;
      Scene scene;
-
      Cursor cursor;
-
-     Cube cube;
-     Cube cube2;
-     
-     cursor.initialVboVao();
-     cube.initialVboVao();
-     cube2.initialVboVao();
 
      scene.initMatrice(&program);
 
@@ -55,7 +48,6 @@ int main(int argc, char** argv) {
      int axe = 0;
      bool done = false;
      while(!done) {
-     
          // Event loop:
          SDL_Event e;
          while(windowManager.pollEvent(e)) {
@@ -84,30 +76,33 @@ int main(int argc, char** argv) {
                     }
 
                     if (e.key.keysym.scancode == SDL_SCANCODE_UP) {
-                        cursor.setCoord(axe, 1);
+                        cursor.changeCoord(axe, 1);
                     } else if (e.key.keysym.scancode == SDL_SCANCODE_DOWN){
-                        cursor.setCoord(axe, -1);
+                        cursor.changeCoord(axe, -1);
+                    }
+
+                    if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
+                        gestionator.ajoutCube(cursor.coord);
                     }
             }
          }
 
          // HERE SHOULD COME THE RENDERING CODE
-
+         glClearColor(1., 0., 0., 1.);
          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-         scene.renvoiMatrice(camera, cube.modifieCube(cursor.coord));
          
-         //cube.dessinCube();
-         cursor.dessinCube();
+         //scene.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
+         scene.renvoiMatrice(camera, glm::mat4());
+         
+         cursor.dessinCursor();
+         gestionator.dessinCube();
         
          // Update the display
          windowManager.swapBuffers();
     }
-     
-     
+          
      // Libération des ressources
-     cube.supprCube();
-     cursor.supprCube();
-     cube2.supprCube();
+     gestionator.supprDonneesCube();
 
      return EXIT_SUCCESS;
 }
