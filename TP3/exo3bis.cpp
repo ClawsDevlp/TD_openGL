@@ -10,6 +10,7 @@
 #include <glimac/TrackballCamera.hpp>
 #include <glimac/Cursor.hpp>
 #include <glimac/Reglages.hpp>
+#include <glimac/scene.hpp>
 
 using namespace glimac;
 
@@ -39,13 +40,13 @@ int main(int argc, char** argv) {
 
      GestionCube gestionator;
      TrackballCamera camera;
+     Reglage reglage;
      Scene scene;
      Cursor cursor;
 
-     gestionator.ajoutCube(glm::vec3(3,0,0));
-     gestionator.ajoutCube(glm::vec3(-3,0,0));
+     gestionator.ajoutCube(glm::vec3(0,0,0));
 
-     scene.initMatrice(&program);
+     reglage.initMatrice(&program);
 
      // Application loop:
      int axe = 0;
@@ -87,6 +88,15 @@ int main(int argc, char** argv) {
                     if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
                         gestionator.ajoutCube(cursor.coord);
                     }
+
+                    //std::cout << gestionator << std::endl;
+                    if (e.key.keysym.scancode == SDL_SCANCODE_I) {
+                        scene.sceneInit(&gestionator);
+                        //std::cout << "created scene in gestionator"<< gestionator << std::endl;
+                        //std::cout << "dessin scene" << std::endl;
+                    }
+
+
             }
          }
 
@@ -94,11 +104,12 @@ int main(int argc, char** argv) {
          glClearColor(1., 0., 0.5, 1.);
          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
          
-         //scene.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
-         scene.renvoiMatrice(camera, glm::mat4());
+         //reglage.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
+         reglage.renvoiMatrice(camera, glm::mat4());
          
          cursor.dessinCursor();
          gestionator.dessinCube();
+         //scene.dessinScene();
         
          // Update the display
          windowManager.swapBuffers();

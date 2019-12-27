@@ -7,7 +7,7 @@
 
 namespace glimac {
 
-class Scene {
+class Reglage {
 
 public:
      // Location matrices

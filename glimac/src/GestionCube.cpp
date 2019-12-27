@@ -1,4 +1,4 @@
-#include "glimac/GestionCube.hpp"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           #include "glimac/GestionCube.hpp"
 
 namespace glimac {
 
@@ -111,14 +111,31 @@ namespace glimac {
     }
 
     void GestionCube::dessinCubeWireframe(){
+              // index buffer
+        int _indexsSommets[] = {
+          // face de devant : v0, v1, v2 puis v0, v2, v3
+          0, 1, 1,  3, 3, 2, 2, 0,
+          // face de derrière
+          4, 5, 5, 7, 4, 6, 6, 7,
+          // face de gauche
+          0, 5, 1, 7, 3, 6, 2, 4
+        }; 
+
+
+        // VB positions sommets
+        glGenBuffers(1, &ibPositionsSommetsID);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibPositionsSommetsID);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(_indexsSommets), _indexsSommets, GL_STATIC_DRAW);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
         glBindVertexArray(c_Vao);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibPositionsSommetsID);
-        glDrawElementsInstanced(GL_LINES, 24, GL_UNSIGNED_INT, 0, cubesPositions.size());
+        glDrawElementsInstanced(GL_LINES, 36, GL_UNSIGNED_INT, 0, cubesPositions.size());
         glBindVertexArray(0);
     };
 
     void GestionCube::ajoutCube(glm::vec3 position){
-      std::cout << position << std::endl;
+      //std::cout << position << std::endl;
       //supprCube(position);
       cubesPositions.push_back(position);
       miseAJourGPU();
@@ -145,4 +162,17 @@ namespace glimac {
           miseAJourGPU();
         }
     }
+
+    // void sceneInit(){
+    //   for (int z = 0; z < 2; ++z)
+    //   {
+    //     for (int x = 0; x < 10; ++x)
+    //     {
+    //       for (int y = 0; y < 5; ++y)
+    //       {
+    //         gestionator.ajoutCube(glm::vec3(x,y,z));
+    //       }
+    //     }
+    //   }
+    // }
 }

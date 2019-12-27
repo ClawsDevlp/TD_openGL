@@ -17,6 +17,7 @@ public:
      GLuint ibPositionsSommetsID;
 
      GestionCube();
+     ~GestionCube() = default;
      
      void ajoutCube(glm::vec3 position);
 
