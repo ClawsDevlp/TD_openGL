@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/glimac.dir/src/Cone.cpp.o"
-  "CMakeFiles/glimac.dir/src/Cube.cpp.o"
   "CMakeFiles/glimac.dir/src/Cursor.cpp.o"
   "CMakeFiles/glimac.dir/src/Geometry.cpp.o"
   "CMakeFiles/glimac.dir/src/GestionCube.cpp.o"

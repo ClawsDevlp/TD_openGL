@@ -152,33 +152,6 @@ src/Cone.cpp.s:
 	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cone.cpp.s
 .PHONY : src/Cone.cpp.s
 
-src/Cube.o: src/Cube.cpp.o
-
-.PHONY : src/Cube.o
-
-# target to build an object file
-src/Cube.cpp.o:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cube.cpp.o
-.PHONY : src/Cube.cpp.o
-
-src/Cube.i: src/Cube.cpp.i
-
-.PHONY : src/Cube.i
-
-# target to preprocess a source file
-src/Cube.cpp.i:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cube.cpp.i
-.PHONY : src/Cube.cpp.i
-
-src/Cube.s: src/Cube.cpp.s
-
-.PHONY : src/Cube.s
-
-# target to generate assembly for a file
-src/Cube.cpp.s:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Cube.cpp.s
-.PHONY : src/Cube.cpp.s
-
 src/Cursor.o: src/Cursor.cpp.o
 
 .PHONY : src/Cursor.o
@@ -488,9 +461,6 @@ help:
 	@echo "... src/Cone.o"
 	@echo "... src/Cone.i"
 	@echo "... src/Cone.s"
-	@echo "... src/Cube.o"
-	@echo "... src/Cube.i"
-	@echo "... src/Cube.s"
 	@echo "... src/Cursor.o"
 	@echo "... src/Cursor.i"
 	@echo "... src/Cursor.s"

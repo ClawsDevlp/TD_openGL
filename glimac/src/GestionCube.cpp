@@ -2,6 +2,12 @@
 
 namespace glimac {
 
+/*
+ShapeVertex posSommets[] = {
+        // p0
+        ShapeVertex(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0,0,0), glm::vec2(0,0)),
+*/
+
      glm::vec3 posSommets[] = {
         // p0
         glm::vec3(-0.5, 0.5, 0.0),
@@ -23,7 +29,7 @@ namespace glimac {
 
     // index buffer
     int _indexsSommets[] = {
-      // face de devant : v0, v1, v2 puis v0, v2, v3
+      // face de devant
       0, 1, 2,  1, 2, 3,
       // face de derrière
       4, 5, 7,  4, 6, 7,
@@ -99,6 +105,7 @@ namespace glimac {
 
     void GestionCube::supprDonneesCube(){
       glDeleteBuffers(1, &positionVbo);
+      glDeleteBuffers(1, &ibPositionsSommetsID);
       glDeleteBuffers(1, &sommetVbo);
       glDeleteVertexArrays(1, &c_Vao);
     }
@@ -163,16 +170,61 @@ namespace glimac {
         }
     }
 
-    // void sceneInit(){
-    //   for (int z = 0; z < 2; ++z)
-    //   {
-    //     for (int x = 0; x < 10; ++x)
-    //     {
-    //       for (int y = 0; y < 5; ++y)
-    //       {
-    //         gestionator.ajoutCube(glm::vec3(x,y,z));
-    //       }
-    //     }
-    //   }
-    // }
+    glm::vec3 GestionCube::incrementAxe(int axe) {
+      glm::vec3 incrementAxe;
+
+      if (axe == 0) {
+            incrementAxe += glm::vec3(1, 0, 0);
+        } else if (axe == 1) {
+            incrementAxe += glm::vec3(0, 1, 0);
+        } else if (axe == 2) {
+            incrementAxe += glm::vec3(0, 0, 1);
+      }
+
+      return incrementAxe;
+    }
+
+    int GestionCube::extrudCube(int axe, glm::vec3 position){
+
+      if(trouveCube(position) == -1){
+        std::cout << "Vous n'êtes pas sur une colonne à extruder" << std::endl;
+        return -1;
+      }
+
+      glm::vec3 incrementVec = incrementAxe(axe);
+      bool found = false;
+
+      while(!found){   
+        if(trouveCube(position+incrementVec) == -1){
+          ajoutCube(position+incrementVec);
+          found = true;
+        } else {
+          position += incrementVec;
+        }
+      }
+      return 1;
+    }
+
+    int GestionCube::digCube(int axe, glm::vec3 position){
+
+      if(trouveCube(position) == -1){
+        std::cout << "Vous n'êtes pas sur une colonne à creuser" << std::endl;
+        return -1;
+      }
+
+      glm::vec3 incrementVec = incrementAxe(axe);
+      bool found = false;
+
+      while(!found){   
+        if(trouveCube(position+incrementVec) == -1){
+          found = true;
+        } else {
+          position += incrementVec;
+        }
+      }
+
+      supprCube(position);
+
+      return 1;
+    }
 }

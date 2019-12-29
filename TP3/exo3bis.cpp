@@ -97,6 +97,14 @@ int main(int argc, char** argv) {
                     }
 
 
+
+                    if (e.key.keysym.scancode == SDL_SCANCODE_E) {
+                        gestionator.extrudCube(axe, cursor.coord);
+                    }
+
+                    if (e.key.keysym.scancode == SDL_SCANCODE_D) {
+                        gestionator.digCube(axe, cursor.coord);
+                    }
             }
          }
 

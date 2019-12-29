@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/TP1_exo5_structure.dir/exo5_structure.cpp.o  -o TP1_exo5_structure ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

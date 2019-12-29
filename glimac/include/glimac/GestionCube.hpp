@@ -3,6 +3,7 @@
 #include "common.hpp"
 #include <vector>
 #include <iostream>
+#include "glimac/common.hpp"
 
 namespace glimac {
 
@@ -29,6 +30,9 @@ public:
      int trouveCube(glm::vec3 position);
      void supprDonneesCube();
      void supprCube(glm::vec3 position);
+     int extrudCube(int axe, glm::vec3 position);
+     int digCube(int axe, glm::vec3 position);
+     glm::vec3 incrementAxe(int axe);
 };
     
 }
