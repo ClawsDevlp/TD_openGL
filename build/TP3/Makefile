@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-m
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -125,132 +125,6 @@ TP3_exo3bis/fast:
 	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/build
 .PHONY : TP3_exo3bis/fast
 
-# Convenience name for target.
-TP3/CMakeFiles/TP3_exo3_trackball.dir/rule:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f CMakeFiles/Makefile2 TP3/CMakeFiles/TP3_exo3_trackball.dir/rule
-.PHONY : TP3/CMakeFiles/TP3_exo3_trackball.dir/rule
-
-# Convenience name for target.
-TP3_exo3_trackball: TP3/CMakeFiles/TP3_exo3_trackball.dir/rule
-
-.PHONY : TP3_exo3_trackball
-
-# fast build rule for target.
-TP3_exo3_trackball/fast:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3_trackball.dir/build.make TP3/CMakeFiles/TP3_exo3_trackball.dir/build
-.PHONY : TP3_exo3_trackball/fast
-
-# Convenience name for target.
-TP3/CMakeFiles/TP3_exo1_sphere.dir/rule:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f CMakeFiles/Makefile2 TP3/CMakeFiles/TP3_exo1_sphere.dir/rule
-.PHONY : TP3/CMakeFiles/TP3_exo1_sphere.dir/rule
-
-# Convenience name for target.
-TP3_exo1_sphere: TP3/CMakeFiles/TP3_exo1_sphere.dir/rule
-
-.PHONY : TP3_exo1_sphere
-
-# fast build rule for target.
-TP3_exo1_sphere/fast:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo1_sphere.dir/build.make TP3/CMakeFiles/TP3_exo1_sphere.dir/build
-.PHONY : TP3_exo1_sphere/fast
-
-# Convenience name for target.
-TP3/CMakeFiles/TP3_exo2_nuages.dir/rule:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f CMakeFiles/Makefile2 TP3/CMakeFiles/TP3_exo2_nuages.dir/rule
-.PHONY : TP3/CMakeFiles/TP3_exo2_nuages.dir/rule
-
-# Convenience name for target.
-TP3_exo2_nuages: TP3/CMakeFiles/TP3_exo2_nuages.dir/rule
-
-.PHONY : TP3_exo2_nuages
-
-# fast build rule for target.
-TP3_exo2_nuages/fast:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo2_nuages.dir/build.make TP3/CMakeFiles/TP3_exo2_nuages.dir/build
-.PHONY : TP3_exo2_nuages/fast
-
-exo1_sphere.o: exo1_sphere.cpp.o
-
-.PHONY : exo1_sphere.o
-
-# target to build an object file
-exo1_sphere.cpp.o:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo1_sphere.dir/build.make TP3/CMakeFiles/TP3_exo1_sphere.dir/exo1_sphere.cpp.o
-.PHONY : exo1_sphere.cpp.o
-
-exo1_sphere.i: exo1_sphere.cpp.i
-
-.PHONY : exo1_sphere.i
-
-# target to preprocess a source file
-exo1_sphere.cpp.i:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo1_sphere.dir/build.make TP3/CMakeFiles/TP3_exo1_sphere.dir/exo1_sphere.cpp.i
-.PHONY : exo1_sphere.cpp.i
-
-exo1_sphere.s: exo1_sphere.cpp.s
-
-.PHONY : exo1_sphere.s
-
-# target to generate assembly for a file
-exo1_sphere.cpp.s:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo1_sphere.dir/build.make TP3/CMakeFiles/TP3_exo1_sphere.dir/exo1_sphere.cpp.s
-.PHONY : exo1_sphere.cpp.s
-
-exo2_nuages.o: exo2_nuages.cpp.o
-
-.PHONY : exo2_nuages.o
-
-# target to build an object file
-exo2_nuages.cpp.o:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo2_nuages.dir/build.make TP3/CMakeFiles/TP3_exo2_nuages.dir/exo2_nuages.cpp.o
-.PHONY : exo2_nuages.cpp.o
-
-exo2_nuages.i: exo2_nuages.cpp.i
-
-.PHONY : exo2_nuages.i
-
-# target to preprocess a source file
-exo2_nuages.cpp.i:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo2_nuages.dir/build.make TP3/CMakeFiles/TP3_exo2_nuages.dir/exo2_nuages.cpp.i
-.PHONY : exo2_nuages.cpp.i
-
-exo2_nuages.s: exo2_nuages.cpp.s
-
-.PHONY : exo2_nuages.s
-
-# target to generate assembly for a file
-exo2_nuages.cpp.s:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo2_nuages.dir/build.make TP3/CMakeFiles/TP3_exo2_nuages.dir/exo2_nuages.cpp.s
-.PHONY : exo2_nuages.cpp.s
-
-exo3_trackball.o: exo3_trackball.cpp.o
-
-.PHONY : exo3_trackball.o
-
-# target to build an object file
-exo3_trackball.cpp.o:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3_trackball.dir/build.make TP3/CMakeFiles/TP3_exo3_trackball.dir/exo3_trackball.cpp.o
-.PHONY : exo3_trackball.cpp.o
-
-exo3_trackball.i: exo3_trackball.cpp.i
-
-.PHONY : exo3_trackball.i
-
-# target to preprocess a source file
-exo3_trackball.cpp.i:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3_trackball.dir/build.make TP3/CMakeFiles/TP3_exo3_trackball.dir/exo3_trackball.cpp.i
-.PHONY : exo3_trackball.cpp.i
-
-exo3_trackball.s: exo3_trackball.cpp.s
-
-.PHONY : exo3_trackball.s
-
-# target to generate assembly for a file
-exo3_trackball.cpp.s:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3_trackball.dir/build.make TP3/CMakeFiles/TP3_exo3_trackball.dir/exo3_trackball.cpp.s
-.PHONY : exo3_trackball.cpp.s
-
 exo3bis.o: exo3bis.cpp.o
 
 .PHONY : exo3bis.o
@@ -284,21 +158,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... TP3_exo3bis"
 	@echo "... rebuild_cache"
-	@echo "... TP3_exo3_trackball"
-	@echo "... TP3_exo1_sphere"
-	@echo "... TP3_exo2_nuages"
-	@echo "... exo1_sphere.o"
-	@echo "... exo1_sphere.i"
-	@echo "... exo1_sphere.s"
-	@echo "... exo2_nuages.o"
-	@echo "... exo2_nuages.i"
-	@echo "... exo2_nuages.s"
-	@echo "... exo3_trackball.o"
-	@echo "... exo3_trackball.i"
-	@echo "... exo3_trackball.s"
+	@echo "... TP3_exo3bis"
+	@echo "... edit_cache"
 	@echo "... exo3bis.o"
 	@echo "... exo3bis.i"
 	@echo "... exo3bis.s"

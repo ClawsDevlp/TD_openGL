@@ -136,45 +136,6 @@ TP3_exo3bis/fast:
 	$(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/build
 .PHONY : TP3_exo3bis/fast
 
-#=============================================================================
-# Target rules for targets named TP3_exo3_trackball
-
-# Build rule for target.
-TP3_exo3_trackball: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP3_exo3_trackball
-.PHONY : TP3_exo3_trackball
-
-# fast build rule for target.
-TP3_exo3_trackball/fast:
-	$(MAKE) -f TP3/CMakeFiles/TP3_exo3_trackball.dir/build.make TP3/CMakeFiles/TP3_exo3_trackball.dir/build
-.PHONY : TP3_exo3_trackball/fast
-
-#=============================================================================
-# Target rules for targets named TP3_exo1_sphere
-
-# Build rule for target.
-TP3_exo1_sphere: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP3_exo1_sphere
-.PHONY : TP3_exo1_sphere
-
-# fast build rule for target.
-TP3_exo1_sphere/fast:
-	$(MAKE) -f TP3/CMakeFiles/TP3_exo1_sphere.dir/build.make TP3/CMakeFiles/TP3_exo1_sphere.dir/build
-.PHONY : TP3_exo1_sphere/fast
-
-#=============================================================================
-# Target rules for targets named TP3_exo2_nuages
-
-# Build rule for target.
-TP3_exo2_nuages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP3_exo2_nuages
-.PHONY : TP3_exo2_nuages
-
-# fast build rule for target.
-TP3_exo2_nuages/fast:
-	$(MAKE) -f TP3/CMakeFiles/TP3_exo2_nuages.dir/build.make TP3/CMakeFiles/TP3_exo2_nuages.dir/build
-.PHONY : TP3_exo2_nuages/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -185,9 +146,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... glimac"
 	@echo "... TP3_exo3bis"
-	@echo "... TP3_exo3_trackball"
-	@echo "... TP3_exo1_sphere"
-	@echo "... TP3_exo2_nuages"
 .PHONY : help
 
 

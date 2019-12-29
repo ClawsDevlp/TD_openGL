@@ -54,7 +54,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "glimac/CMakeFiles/glimac.dir/DependInfo.cmake"
   "TP3/CMakeFiles/TP3_exo3bis.dir/DependInfo.cmake"
-  "TP3/CMakeFiles/TP3_exo3_trackball.dir/DependInfo.cmake"
-  "TP3/CMakeFiles/TP3_exo1_sphere.dir/DependInfo.cmake"
-  "TP3/CMakeFiles/TP3_exo2_nuages.dir/DependInfo.cmake"
   )

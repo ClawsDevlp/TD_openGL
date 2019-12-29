@@ -5,7 +5,7 @@ namespace glimac {
     Cursor::Cursor()
         : coord(0.)
         {
-            cursorCube.ajoutCube(coord);
+            cursorCube.ajoutCube(coord, glm::vec3(0,0,0));
         }
 
     void Cursor::changeCoord(int axe, int increment){
@@ -19,7 +19,7 @@ namespace glimac {
             coord += glm::vec3(0, 0, increment);
         }
 
-        cursorCube.ajoutCube(coord);
+        cursorCube.ajoutCube(coord, glm::vec3(0,0,0));
     }
 
     void Cursor::dessinCursor(){

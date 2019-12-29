@@ -10,19 +10,21 @@ namespace glimac {
 class GestionCube {
 
 public:
-     std::vector<glm::vec3> cubesPositions;
-
-     GLuint positionVbo;
-     GLuint c_Vao;
-     GLuint sommetVbo;
-     GLuint ibPositionsSommetsID;
-
      GestionCube();
      ~GestionCube() = default;
      
-     void ajoutCube(glm::vec3 position);
+     std::vector<glm::vec3> cubesPositions;
+     std::vector<glm::vec3> cubesCouleurs;
+
+     GLuint positionVbo;
+     GLuint vao;
+     GLuint sommetVbo;
+     GLuint positionSommetVbo;
+     GLuint normaleVbo;
+     GLuint couleurVbo;
 
      void initialisationCube();
+     void ajoutCube(glm::vec3 position, glm::vec3 color);
      void miseAJourGPU();
      void afficheCube();
      void dessinCube();
