@@ -55,55 +55,66 @@ int main(int argc, char** argv) {
         // Event loop:
         SDL_Event e;
         while(windowManager.pollEvent(e)) {
-        if(e.type == SDL_QUIT) {
-            done = true; // Leave the loop after this iteration
-        }
-        switch(e.type){
-            case SDL_MOUSEMOTION:
-                if (SDL_BUTTON(SDL_BUTTON_LEFT) & e.motion.state)
-                {
-                    camera.rotateLeft(e.motion.xrel);
-                    camera.rotateUp(e.motion.yrel);
-                }
-                break;
-            case SDL_MOUSEWHEEL:
-                camera.moveFront(e.wheel.y);
-                break;
-            case SDL_KEYDOWN:
-                // AXE : x=0 y=1 z=2
-                if (e.key.keysym.scancode == SDL_SCANCODE_X) {
-                    axe = 0;
-                } else if (e.key.keysym.scancode == SDL_SCANCODE_Y) {
-                    axe = 1;
-                } else if (e.key.keysym.scancode == SDL_SCANCODE_W) { // Code W car qwerty
-                    axe = 2; 
-                }
+            if(e.type == SDL_QUIT) {
+                done = true; // Leave the loop after this iteration
+            }
+            switch(e.type){
+                case SDL_MOUSEMOTION:
+                    if (SDL_BUTTON(SDL_BUTTON_LEFT) & e.motion.state)
+                    {
+                        camera.rotateLeft(e.motion.xrel);
+                        camera.rotateUp(e.motion.yrel);
+                    }
+                    break;
+                case SDL_MOUSEWHEEL:
+                    camera.moveFront(e.wheel.y);
+                    break;
+                case SDL_KEYDOWN:
+                    // Selection de l'axe a utiliser
+                    // AXE : x=0 y=1 z=2
+                    if (e.key.keysym.scancode == SDL_SCANCODE_X) {
+                        axe = 0;
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_Y) {
+                        axe = 1;
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_W) { // Code W car qwerty
+                        axe = 2; 
+                    }
 
-                if (e.key.keysym.scancode == SDL_SCANCODE_UP) {
-                    cursor.changeCoord(axe, 1);
-                } else if (e.key.keysym.scancode == SDL_SCANCODE_DOWN){
-                    cursor.changeCoord(axe, -1);
-                }
+                    // Mouvement curseur
+                    if (e.key.keysym.scancode == SDL_SCANCODE_UP) {
+                        cursor.changeCoord(axe, 1);
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_DOWN){
+                        cursor.changeCoord(axe, -1);
+                    }
 
-                if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-                    gestionator.ajoutCube(cursor.coord, glm::vec3(0,0,0));
-                }
+                    // Ajout cube
+                    if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
+                        gestionator.ajoutCube(cursor.coord, glm::vec3(0,0,0));
+                    }
 
-                //std::cout << gestionator << std::endl;
-                if (e.key.keysym.scancode == SDL_SCANCODE_I) {
-                    scene.sceneInit(&gestionator);
-                    //std::cout << "created scene in gestionator"<< gestionator << std::endl;
-                    //std::cout << "dessin scene" << std::endl;
-                }
+                    // Initialisation scene
+                    //std::cout << gestionator << std::endl;
+                    if (e.key.keysym.scancode == SDL_SCANCODE_I) {
+                        scene.sceneInit(&gestionator);
+                        //std::cout << "created scene in gestionator"<< gestionator << std::endl;
+                        //std::cout << "dessin scene" << std::endl;
+                    }
 
-                if (e.key.keysym.scancode == SDL_SCANCODE_E) {
-                    gestionator.extrudCube(axe, cursor.coord);
-                }
+                    // Rajout cube à une colonne (extrud)
+                    if (e.key.keysym.scancode == SDL_SCANCODE_E) {
+                        gestionator.extruDigCube(axe, true, cursor.coord);
+                    }
 
-                if (e.key.keysym.scancode == SDL_SCANCODE_D) {
-                    gestionator.digCube(axe, cursor.coord);
-                }
-        }
+                    // Creuse colonne
+                    if (e.key.keysym.scancode == SDL_SCANCODE_D) {
+                        gestionator.extruDigCube(axe, false, cursor.coord);
+                    }
+
+                    // Changement couleur
+                    if (e.key.keysym.scancode == SDL_SCANCODE_C) {
+                        gestionator.modifCouleur(cursor.coord, glm::vec3(1.,1.,1.));
+                    }
+            }
         }
 
         // HERE SHOULD COME THE RENDERING CODE

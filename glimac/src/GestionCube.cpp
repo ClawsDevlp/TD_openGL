@@ -98,7 +98,7 @@ ShapeVertex posSommets[] = {
     // VB couleurs
     glGenBuffers(1, &couleurVbo);
           
-    //vertex array
+    // vertex array
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
@@ -106,8 +106,9 @@ ShapeVertex posSommets[] = {
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_NORMALE);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXCOORDS);
 
+
+    // Chaque vbo est rattaché au vao
     glBindBuffer(GL_ARRAY_BUFFER, sommetVbo);
-    
     glVertexAttribPointer(VERTEX_ATTR_SOMMET_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
     glVertexAttribPointer(VERTEX_ATTR_SOMMET_NORMALE, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
     glVertexAttribPointer(VERTEX_ATTR_SOMMET_TEXCOORDS, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
@@ -225,10 +226,10 @@ ShapeVertex posSommets[] = {
     return incrementAxe;
   }
 
-  int GestionCube::extrudCube(int axe, glm::vec3 position){
+  int GestionCube::extruDigCube(int axe, bool ExtrOrDig, glm::vec3 position){
 
     if(trouveCube(position) == -1){
-      std::cout << "Vous n'êtes pas sur une colonne à extruder" << std::endl;
+      std::cout << "Vous n'êtes pas sur une colonne" << std::endl;
       return -1;
     }
 
@@ -237,35 +238,25 @@ ShapeVertex posSommets[] = {
 
     while(!found){   
       if(trouveCube(position+incrementVec) == -1){
-        ajoutCube(position+incrementVec, glm::vec3(0,0,0));
         found = true;
       } else {
         position += incrementVec;
       }
     }
+
+    // ExtrOrDig permet de savoir si l'utilisateur extrud ou dig
+    if(ExtrOrDig){
+      ajoutCube(position+incrementVec, glm::vec3(0,0,0));
+    } else {
+      supprCube(position);
+    }
+
     return 1;
   }
 
-  int GestionCube::digCube(int axe, glm::vec3 position){
-
-    if(trouveCube(position) == -1){
-      std::cout << "Vous n'êtes pas sur une colonne à creuser" << std::endl;
-      return -1;
-    }
-
-    glm::vec3 incrementVec = incrementAxe(axe);
-    bool found = false;
-
-    while(!found){   
-      if(trouveCube(position+incrementVec) == -1){
-        found = true;
-      } else {
-        position += incrementVec;
-      }
-    }
-
-    supprCube(position);
-
-    return 1;
+  void GestionCube::modifCouleur(glm::vec3 position, glm::vec3 couleur){
+    int index = trouveCube(position);
+    cubesCouleurs[index] = couleur;
+    miseAJourGPU();
   }
 }

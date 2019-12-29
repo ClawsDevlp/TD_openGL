@@ -13,7 +13,7 @@ namespace glimac {
         uLightPos_vs = glGetUniformLocation(program->getGLId(), "uLightPos_vs");
         uLightIntensity = glGetUniformLocation(program->getGLId(), "uLightIntensity");
 
-        //Active le test de profondeur GPU
+        // Active le test de profondeur GPU
         glEnable(GL_DEPTH_TEST);
 
         // Calculer la matrice ProjMatrix
@@ -22,11 +22,7 @@ namespace glimac {
 
     void Reglage::renvoiMatrice(TrackballCamera camera, glm::mat4 CubeModelMatrix){
          const glm::mat4 ViewMatrix = camera.getViewMatrix();
-
          MVMatrix = ViewMatrix*CubeModelMatrix;
-
-         // Rotater la lumière
-         //CubeModelMatrix = glm::vec3(CubeModelMatrix * glm::vec4(1.f, 1.f, 1.f, 1.f));
 
          // Renvoi des valeurs des variables uniformes de lumieres
          glUniform3fv(uKd, 1, glm::value_ptr(glm::vec3(3.f, 1.f, 2.f)));
