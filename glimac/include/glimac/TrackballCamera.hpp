@@ -10,7 +10,7 @@ class TrackballCamera {
 
 public:
     TrackballCamera():
-        m_fDistance(5.), m_fAngleX(0.), m_fAngleY(0.) {
+        m_fDistance(22.), m_fAngleX(10.), m_fAngleY(10.) {
     }
 
     float getDistance() {
