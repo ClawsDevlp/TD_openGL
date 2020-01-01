@@ -12,6 +12,10 @@
 #include <glimac/Reglages.hpp>
 #include <glimac/scene.hpp>
 
+#include <imgui.h>
+#include <imgui_impl_opengl3.h>
+#include <imgui_impl_sdl.h>
+
 using namespace glimac;
 
 int main(int argc, char** argv) {
@@ -29,6 +33,12 @@ int main(int argc, char** argv) {
     std::cout << "GLEW Version : " << glewGetString(GLEW_VERSION) << std::endl;
 
     FilePath applicationPath(argv[0]);
+
+    // Imgui
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGui_ImplSDL2_InitForOpenGL(windowManager.window, SDL_GL_CreateContext(windowManager.window));
+    ImGui_ImplOpenGL3_Init("#version 330 core");
 
     //charger les shaders
     Program program = loadProgram(applicationPath.dirPath() + argv[1], applicationPath.dirPath() + argv[2]);
@@ -120,19 +130,90 @@ int main(int argc, char** argv) {
         // HERE SHOULD COME THE RENDERING CODE
         glClearColor(1., 0., 0.5, 1.);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
+
         //reglage.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
         reglage.renvoiMatrice(camera, glm::mat4());
         
         cursor.dessinCursor();
         gestionator.dessinCube();
         //scene.dessinScene();
+
+        // Imgui dessin
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDL2_NewFrame(windowManager.window);
+        ImGui::NewFrame();
+        static float colBase = 0.;
+
+        // Imgui nouvelle fenêtre
+        ImGui::Begin("Outils de création");
+        
+        ImGui::Text("Curseur");
+        
+        ImGui::Text("Changer axe : ");
+        ImGui::SameLine();
+        if (ImGui::Button("X"))
+            axe = 0;
+        ImGui::SameLine();
+        if (ImGui::Button("Y"))
+            axe = 1;
+        ImGui::SameLine();
+        if (ImGui::Button("Z"))
+            axe = 2;
+
+        ImGui::Text("Cube");
+
+        if (ImGui::Button("Ajout"))
+            gestionator.ajoutCube(cursor.coord, glm::vec3(0,0,0));
+        ImGui::SameLine();
+        if (ImGui::Button("Supression"))
+            gestionator.supprCube(cursor.coord);
+        ImGui::ColorEdit4("Couleur", &colBase); //montre la couleur de base du cube et la modifie
+        
+        ImGui::Text("Colonne");
+
+        ImGui::Text("Extrud");
+        ImGui::SameLine();
+        if (ImGui::Button("Xe"))
+            gestionator.extruDigCube(0, true, cursor.coord);
+        ImGui::SameLine();
+        if (ImGui::Button("Ye"))
+            gestionator.extruDigCube(1, true, cursor.coord);
+        ImGui::SameLine();
+        if (ImGui::Button("Ze"))
+            gestionator.extruDigCube(2, true, cursor.coord);
+
+        ImGui::Text("Creuser");
+        ImGui::SameLine();
+        if (ImGui::Button("Xd"))
+            gestionator.extruDigCube(0, false, cursor.coord);
+        ImGui::SameLine();
+        if (ImGui::Button("Yd"))
+            gestionator.extruDigCube(1, false, cursor.coord);
+        ImGui::SameLine();
+        if (ImGui::Button("Zd"))
+            gestionator.extruDigCube(2, false, cursor.coord);
+
+        
+        ImGui::Text("Terrain");
+
+        if (ImGui::Button("Plat"))
+            scene.sceneInit(&gestionator);
+
+
+        ImGui::End();
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     
         // Update the display
         windowManager.swapBuffers();
     }
         
     // Libération des ressources
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
+    //SDL_GL_DeleteContext(gl_context);
+    
     gestionator.supprDonneesCube();
 
     return EXIT_SUCCESS;

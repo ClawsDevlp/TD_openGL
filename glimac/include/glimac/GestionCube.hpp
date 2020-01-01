@@ -7,36 +7,37 @@
 
 namespace glimac {
 
-class GestionCube {
+     class GestionCube {
 
-public:
-     GestionCube();
-     ~GestionCube() = default;
-     
-     std::vector<glm::vec3> cubesPositions;
-     std::vector<glm::vec3> cubesCouleurs;
+          public:
+          GestionCube();
+          ~GestionCube() = default;
 
-     GLuint positionVbo;
-     GLuint vao;
-     GLuint sommetVbo;
-     GLuint positionSommetVbo;
-     GLuint normaleVbo;
-     GLuint couleurVbo;
+          std::vector<glm::vec3> cubesPositions;
+          std::vector<glm::vec3> cubesCouleurs;
 
-     void initialisationCube();
-     void ajoutCube(glm::vec3 position, glm::vec3 color);
-     void miseAJourGPU();
-     void afficheCube();
-     void dessinCube();
-     void dessinCubeWireframe();
-     int trouveCube(glm::vec3 position);
-     void supprDonneesCube();
-     void supprCube(glm::vec3 position);
-     int extruDigCube(int axe, bool ExtrOrDig, glm::vec3 position);
-     int digCube(int axe, glm::vec3 position);
-     glm::vec3 incrementAxe(int axe);
+          GLuint positionVbo;
+          GLuint vao;
+          GLuint sommetVbo;
+          GLuint positionSommetVbo;
+          GLuint normaleVbo;
+          GLuint couleurVbo;
 
-     void modifCouleur(glm::vec3 position, glm::vec3 couleur);
-};
+          void initialisationCube();
+          void ajoutCube(glm::vec3 position, glm::vec3 color);
+          void miseAJourGPU();
+          void afficheCube();
+          void dessinCube();
+          void dessinCubeWireframe();
+          int trouveCube(glm::vec3 position);
+          void supprDonneesCube();
+          void supprCube(glm::vec3 position);
+          int extruDigCube(int axe, bool ExtrOrDig, glm::vec3 position);
+          int digCube(int axe, glm::vec3 position);
+          glm::vec3 incrementAxe(int axe);
+
+          glm::vec3 trouvCouleur(glm::vec3 position);
+          void modifCouleur(glm::vec3 position, glm::vec3 couleur);
+     };
     
 }

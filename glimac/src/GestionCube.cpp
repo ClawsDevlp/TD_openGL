@@ -178,8 +178,7 @@ ShapeVertex posSommets[] = {
   };
 
   void GestionCube::ajoutCube(glm::vec3 position, glm::vec3 color){
-    //std::cout << position << std::endl;
-    //supprCube(position);
+    supprCube(position);
     cubesPositions.push_back(position);
     cubesCouleurs.push_back(color);
     miseAJourGPU();
@@ -252,6 +251,11 @@ ShapeVertex posSommets[] = {
     }
 
     return 1;
+  }
+
+  glm::vec3 GestionCube::trouvCouleur(glm::vec3 position) {
+    int index = trouveCube(position);
+    return cubesCouleurs[index];
   }
 
   void GestionCube::modifCouleur(glm::vec3 position, glm::vec3 couleur){
