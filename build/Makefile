@@ -124,6 +124,19 @@ glimac/fast:
 .PHONY : glimac/fast
 
 #=============================================================================
+# Target rules for targets named imgui
+
+# Build rule for target.
+imgui: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 imgui
+.PHONY : imgui
+
+# fast build rule for target.
+imgui/fast:
+	$(MAKE) -f imgui/CMakeFiles/imgui.dir/build.make imgui/CMakeFiles/imgui.dir/build
+.PHONY : imgui/fast
+
+#=============================================================================
 # Target rules for targets named TP3_exo3bis
 
 # Build rule for target.
@@ -145,6 +158,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... glimac"
+	@echo "... imgui"
 	@echo "... TP3_exo3bis"
 .PHONY : help
 

@@ -25,6 +25,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/SDL2"
   "../glimac/include"
   "../third-party/include"
+  "../imgui/include"
   )
 
 # Targets to which this target links.

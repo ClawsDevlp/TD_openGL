@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include 
+CXX_INCLUDES = -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include 
 

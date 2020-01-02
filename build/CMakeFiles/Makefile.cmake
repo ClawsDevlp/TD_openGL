@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "../glimac/CMakeLists.txt"
+  "../imgui/CMakeLists.txt"
   "/usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
@@ -47,11 +48,13 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "glimac/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "imgui/CMakeFiles/CMakeDirectoryInformation.cmake"
   "TP3/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "glimac/CMakeFiles/glimac.dir/DependInfo.cmake"
+  "imgui/CMakeFiles/imgui.dir/DependInfo.cmake"
   "TP3/CMakeFiles/TP3_exo3bis.dir/DependInfo.cmake"
   )

@@ -90,6 +90,7 @@ TP3_exo3bis_EXTERNAL_OBJECTS =
 
 TP3/TP3_exo3bis: TP3/CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.o
 TP3/TP3_exo3bis: TP3/CMakeFiles/TP3_exo3bis.dir/build.make
+TP3/TP3_exo3bis: imgui/libimgui.a
 TP3/TP3_exo3bis: glimac/libglimac.a
 TP3/TP3_exo3bis: /usr/lib/x86_64-linux-gnu/libGL.so
 TP3/TP3_exo3bis: /usr/lib/x86_64-linux-gnu/libGLU.so

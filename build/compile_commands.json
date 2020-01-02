@@ -1,72 +1,102 @@
 [
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Cone.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Cone.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Cone.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Cone.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Cone.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Cursor.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Cursor.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Cursor.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Cursor.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Cursor.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Geometry.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Geometry.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Geometry.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Geometry.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Geometry.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/GestionCube.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/GestionCube.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/GestionCube.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/GestionCube.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/GestionCube.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Image.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Image.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Image.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Image.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Image.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Imagev2.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Imagev2.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Imagev2.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Imagev2.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Imagev2.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Program.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Program.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Program.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Program.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Program.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Reglages.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Reglages.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Reglages.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Reglages.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Reglages.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/SDLWindowManager.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/SDLWindowManager.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/SDLWindowManager.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Shader.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Shader.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Shader.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Shader.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Shader.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Sphere.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Sphere.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/Sphere.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Sphere.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/Sphere.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/scene.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/scene.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/scene.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/scene.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/scene.cpp"
 },
 {
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/glimac",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/tiny_obj_loader.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/glimac.dir/src/tiny_obj_loader.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/tiny_obj_loader.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/src/tiny_obj_loader.cpp"
 },
 {
+  "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/imgui",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/imgui.dir/src/imgui.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui.cpp",
+  "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui.cpp"
+},
+{
+  "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/imgui",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/imgui.dir/src/imgui_draw.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_draw.cpp",
+  "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_draw.cpp"
+},
+{
+  "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/imgui",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/imgui.dir/src/imgui_impl_opengl3.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_impl_opengl3.cpp",
+  "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_impl_opengl3.cpp"
+},
+{
+  "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/imgui",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/imgui.dir/src/imgui_impl_sdl.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_impl_sdl.cpp",
+  "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_impl_sdl.cpp"
+},
+{
+  "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/imgui",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/imgui.dir/src/imgui_stdlib.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_stdlib.cpp",
+  "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_stdlib.cpp"
+},
+{
+  "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/imgui",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/imgui.dir/src/imgui_widgets.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_widgets.cpp",
+  "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/src/imgui_widgets.cpp"
+},
+{
   "directory": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build/TP3",
-  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include  -g   -std=c++11 -o CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/exo3bis.cpp",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/glimac/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/third-party/include -I/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/imgui/include  -g   -std=c++11 -o CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.o -c /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/exo3bis.cpp",
   "file": "/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/exo3bis.cpp"
 }
 ]
