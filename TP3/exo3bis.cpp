@@ -102,12 +102,14 @@ int main(int argc, char** argv) {
                     }
 
                     // Initialisation scene
-                    //std::cout << gestionator << std::endl;
                     if (e.key.keysym.scancode == SDL_SCANCODE_I) {
                         scene.sceneInit(&gestionator);
-                        //std::cout << "created scene in gestionator"<< gestionator << std::endl;
-                        //std::cout << "dessin scene" << std::endl;
                     }
+
+                    //Create a random scene following rbf rules
+                    if (e.key.keysym.scancode == SDL_SCANCODE_R) {
+                        scene.loadRBFscene(&gestionator);
+                    } 
 
                     // Rajout cube à une colonne (extrud)
                     if (e.key.keysym.scancode == SDL_SCANCODE_E) {
