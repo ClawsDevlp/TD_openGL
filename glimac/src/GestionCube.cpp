@@ -245,7 +245,7 @@ ShapeVertex posSommets[] = {
 
     // ExtrOrDig permet de savoir si l'utilisateur extrud ou dig
     if(ExtrOrDig){
-      ajoutCube(position+incrementVec, glm::vec3(0,0,0));
+      ajoutCube(position+incrementVec, glm::vec3(0,5,0));
     } else {
       supprCube(position);
     }

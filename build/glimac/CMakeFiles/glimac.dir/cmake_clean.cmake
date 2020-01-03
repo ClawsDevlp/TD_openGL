@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/glimac.dir/src/GestionCube.cpp.o"
   "CMakeFiles/glimac.dir/src/Image.cpp.o"
   "CMakeFiles/glimac.dir/src/Imagev2.cpp.o"
+  "CMakeFiles/glimac.dir/src/Interface.cpp.o"
   "CMakeFiles/glimac.dir/src/Program.cpp.o"
   "CMakeFiles/glimac.dir/src/Reglages.cpp.o"
   "CMakeFiles/glimac.dir/src/SDLWindowManager.cpp.o"

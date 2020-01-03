@@ -14,7 +14,7 @@ namespace glimac {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame(windowManager->window);
         ImGui::NewFrame();
-        static float colBase = 0.;
+        float col[3];
         
         ImGui::Begin("Outils de création");
         
@@ -38,20 +38,17 @@ namespace glimac {
         ImGui::Text("Cube");
 
         if (ImGui::Button("Ajout"))
-            gestionator->ajoutCube(cursor->coord, glm::vec3(0,0,0));
+            gestionator->ajoutCube(cursor->coord, glm::vec3(0,1,0));
         ImGui::SameLine();
         if (ImGui::Button("Supression"))
             gestionator->supprCube(cursor->coord);
-        ImGui::ColorEdit4("Couleur", &colBase); //montre la couleur de base du cube et la modifie
 
-            /*float colBase = 0, 0, 1 };
-            colBase = glm::value_ptr(gestionator.trouvCouleur(cursor.coord));
-
-            glm::vec3 vec(1, 2, 3);
-            float* data = glm::value_ptr(vec)
-            
-            float data[] = { 1, 2, 3 };
-            glm::vec3 vec = glm::make_vec3(data);*/
+        glm::vec3 couleur = gestionator->trouvCouleur(cursor->coord);
+        col[0] = couleur[0];
+        col[1] = couleur[1];
+        col[2] = couleur[2];
+        ImGui::ColorEdit3("", col);
+        gestionator->modifCouleur(cursor->coord, glm::vec3(col[0], col[1], col[2]));
 
         /* PARTIE COLONNE */
         ImGui::Text("Colonne");

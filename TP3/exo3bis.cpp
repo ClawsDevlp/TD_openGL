@@ -98,7 +98,7 @@ int main(int argc, char** argv) {
 
                     // Ajout cube
                     if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-                        gestionator.ajoutCube(cursor.coord, glm::vec3(0,0,0));
+                        gestionator.ajoutCube(cursor.coord, glm::vec3(0,1,0));
                     }
 
                     // Initialisation scene
@@ -135,8 +135,8 @@ int main(int argc, char** argv) {
         //reglage.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
         reglage.renvoiMatrice(camera, glm::mat4());
         
-        cursor.dessinCursor();
         gestionator.dessinCube();
+        cursor.dessinCursor();
         //scene.dessinScene();
 
         // Fenetre Imgui
