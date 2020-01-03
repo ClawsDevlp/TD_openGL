@@ -3,11 +3,13 @@
 
 #include "common.hpp"
 #include "GestionCube.hpp"
+#include "rbf.hpp"
 #include <vector>
 #include <iostream>
 
-
 namespace glimac {
+
+const int SCENE_DIM = 20;
 
 class Scene {
 
@@ -21,6 +23,7 @@ public:
 
      void sceneInit(GestionCube* ActualGerant);
      //void dessinScene();
+     void loadRBFscene(GestionCube* ActualGerant);
 };
     
 }
