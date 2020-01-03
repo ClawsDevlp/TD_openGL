@@ -1,5 +1,4 @@
 #include "glimac/rbf.hpp"
-#include <eigen3/Eigen/Dense>
 
 namespace glimac {
     float phi(const float a){
