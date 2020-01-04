@@ -1,31 +1,39 @@
 #version 330 core
 
-in vec3 vPosition_vs; // Position du sommet transformé dans l'espace View
 in vec3 vNormal_vs; // Normale du sommet transformté dans l'espace View
 in vec3 vTexCoords; // Cordonnées de texture du sommet
-/*
-uniform vec3 uKd;
-uniform vec3 uKs;
-uniform float uShininess;
 
-uniform vec3 uLightPos_vs;
-uniform vec3 uLightIntensity;
-*/
+in vec3 vPosInWorld;
+
+
+uniform bool uJourNuit;
+
 out vec4 fColor;
-/*
-vec3 pointLight(){
-    vec3 halfVector = (normalize(uLightPos_vs - vPosition_vs) + uLightPos_vs) /2;
-    vec3 lightIntensity = uLightIntensity / (distance(uLightPos_vs ,vPosition_vs) * distance(uLightPos_vs ,vPosition_vs));
-    
-    return lightIntensity*(uKd*(dot(uLightPos_vs, vNormal_vs))+uKs*pow(dot(halfVector, vNormal_vs),uShininess));
+
+float pointLight(){
+    vec3 dir = vec3(5, 5, 5);
+    dir = normalize(dir);
+    vec3 dirLghtPixel = normalize(vPosInWorld-dir);
+    float pointL = max(-dot(vNormal_vs, dirLghtPixel), 0.);
+    return pointL;
 }
 
-vec3 directionalLight(){
-    vec3 halfVector = (normalize(-vPosition_vs)+uLightDir_vs)/2;
-
-    return uLightIntensity*(uKd*(dot(uLightDir_vs, vNormal_vs))+uKs*pow(dot(halfVector, vNormal_vs),uShininess));
+float directionalLight(){
+    vec3 dir = vec3(5, -10, 5);
+    dir = normalize(dir);
+    float directionL = max(-dot(vNormal_vs, dir), 0.);
+    return directionL;
 }
-*/
+
 void main(){
-	fColor = vec4(vTexCoords, 1.0);//vNormal_vs;
+    float luminosite = 0.3;
+
+    if(uJourNuit){
+        luminosite += directionalLight();
+    }
+
+    luminosite += pointLight();
+    luminosite = min(luminosite, 1);
+    
+	fColor = vec4(vTexCoords * luminosite, 1.0);//vNormal_vs;
 }

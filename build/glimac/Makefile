@@ -314,6 +314,33 @@ src/Interface.cpp.s:
 	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Interface.cpp.s
 .PHONY : src/Interface.cpp.s
 
+src/Lumiere.o: src/Lumiere.cpp.o
+
+.PHONY : src/Lumiere.o
+
+# target to build an object file
+src/Lumiere.cpp.o:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Lumiere.cpp.o
+.PHONY : src/Lumiere.cpp.o
+
+src/Lumiere.i: src/Lumiere.cpp.i
+
+.PHONY : src/Lumiere.i
+
+# target to preprocess a source file
+src/Lumiere.cpp.i:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Lumiere.cpp.i
+.PHONY : src/Lumiere.cpp.i
+
+src/Lumiere.s: src/Lumiere.cpp.s
+
+.PHONY : src/Lumiere.s
+
+# target to generate assembly for a file
+src/Lumiere.cpp.s:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Lumiere.cpp.s
+.PHONY : src/Lumiere.cpp.s
+
 src/Program.o: src/Program.cpp.o
 
 .PHONY : src/Program.o
@@ -449,6 +476,33 @@ src/Sphere.cpp.s:
 	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/Sphere.cpp.s
 .PHONY : src/Sphere.cpp.s
 
+src/rbf.o: src/rbf.cpp.o
+
+.PHONY : src/rbf.o
+
+# target to build an object file
+src/rbf.cpp.o:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/rbf.cpp.o
+.PHONY : src/rbf.cpp.o
+
+src/rbf.i: src/rbf.cpp.i
+
+.PHONY : src/rbf.i
+
+# target to preprocess a source file
+src/rbf.cpp.i:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/rbf.cpp.i
+.PHONY : src/rbf.cpp.i
+
+src/rbf.s: src/rbf.cpp.s
+
+.PHONY : src/rbf.s
+
+# target to generate assembly for a file
+src/rbf.cpp.s:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f glimac/CMakeFiles/glimac.dir/build.make glimac/CMakeFiles/glimac.dir/src/rbf.cpp.s
+.PHONY : src/rbf.cpp.s
+
 src/scene.o: src/scene.cpp.o
 
 .PHONY : src/scene.o
@@ -533,6 +587,9 @@ help:
 	@echo "... src/Interface.o"
 	@echo "... src/Interface.i"
 	@echo "... src/Interface.s"
+	@echo "... src/Lumiere.o"
+	@echo "... src/Lumiere.i"
+	@echo "... src/Lumiere.s"
 	@echo "... src/Program.o"
 	@echo "... src/Program.i"
 	@echo "... src/Program.s"
@@ -548,6 +605,9 @@ help:
 	@echo "... src/Sphere.o"
 	@echo "... src/Sphere.i"
 	@echo "... src/Sphere.s"
+	@echo "... src/rbf.o"
+	@echo "... src/rbf.i"
+	@echo "... src/rbf.s"
 	@echo "... src/scene.o"
 	@echo "... src/scene.i"
 	@echo "... src/scene.s"

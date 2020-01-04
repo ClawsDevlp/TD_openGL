@@ -49,6 +49,7 @@ int main(int argc, char** argv) {
 
     GestionCube gestionator;
     TrackballCamera camera;
+    Lumiere lumiere;
     Reglage reglage;
     Scene scene;
     Cursor cursor;
@@ -133,14 +134,16 @@ int main(int argc, char** argv) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //reglage.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
-        reglage.renvoiMatrice(camera, glm::mat4());
+        reglage.renvoiMatrice(camera, glm::mat4(), lumiere);
         
         gestionator.dessinCube();
         cursor.dessinCursor();
         //scene.dessinScene();
 
         // Fenetre Imgui
-        interface.fenetreImgui(&windowManager, &axe, &gestionator, &cursor, &scene);
+        interface.creationFenetre(&windowManager);
+        interface.fenetreImgui(&axe, &gestionator, &cursor, &scene, &lumiere);
+        interface.arretFenetre();
         
         windowManager.swapBuffers();
     }
@@ -149,6 +152,7 @@ int main(int argc, char** argv) {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
+    //interface.stopImgui(); -> fonctionne pas etrangement ?
     //SDL_GL_DeleteContext(gl_context);
     
     gestionator.supprDonneesCube();

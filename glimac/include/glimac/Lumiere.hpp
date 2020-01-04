@@ -10,9 +10,16 @@ namespace glimac {
 
     public:
 
-    Lumiere() = default;
+    Lumiere();
     ~Lumiere() = default;
 
-  
+    bool directional; // mode jour / nuit
+
+    void modeJourNuit();
+    // Initialisation vbos et vao des lum
+    void initLum();  
+    void ajoutPointLum(glm::vec3 position);
+    void supprPointLum(glm::vec3 position);
+    
     };
 }

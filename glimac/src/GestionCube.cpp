@@ -1,32 +1,22 @@
 #include "glimac/GestionCube.hpp"
 
 namespace glimac {
-
-/*
-ShapeVertex posSommets[] = {
-        // p0
-        ShapeVertex(glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0,0,0), glm::vec2(0,0)),
-*/
-
   // Indexes
 
   glm::vec3 posSommets[] = {
-    // p0
-    glm::vec3(-0.5, 0.5, 0.0),
-    // p1
-    glm::vec3(0.5, 0.5, 0.0),
-    // p2
-    glm::vec3(-0.5, -0.5, 0.0),
-    // p3
-    glm::vec3(0.5, -0.5, 0.0),
-    // p4
-    glm::vec3(-0.5, -0.5, -1.0),
-    // p5
-    glm::vec3(-0.5, 0.5, -1.0),
-    // p6
-    glm::vec3(0.5, -0.5, -1.0),
-    // p7
-    glm::vec3(0.5, 0.5, -1.0),
+    // face de devant 0 1 2 3
+    glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0.5, 0.5, 0.0), glm::vec3(-0.5, -0.5, 0.0), glm::vec3(0.5, -0.5, 0.0),
+    // face de derrière 5 7 4 6
+    glm::vec3(-0.5, 0.5, -1.0), glm::vec3(0.5, 0.5, -1.0), glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0.5, -0.5, -1.0),
+    // face de gauche 7 1 6 3
+    glm::vec3(-0.5, 0.5, -1.0),glm::vec3(-0.5, 0.5, 0.0), glm::vec3(-0.5, -0.5, -1.0), glm::vec3(-0.5, -0.5, 0.0),
+    // face de droite 5 0  4 2
+    glm::vec3(0.5, 0.5, -1.0), glm::vec3(0.5, 0.5, 0.0), glm::vec3(0.5, -0.5, -1.0), glm::vec3(0.5, -0.5, 0.0),
+    // face du dessous 2 3 4 6
+    glm::vec3(-0.5, -0.5, 0.0), glm::vec3(0.5, -0.5, 0.0), glm::vec3(-0.5, -0.5, -1.0), glm::vec3(0.5, -0.5, -1.0),
+    // face du dessus 0 1 5 7
+    glm::vec3(-0.5, 0.5, 0.0), glm::vec3(0.5, 0.5, 0.0), glm::vec3(-0.5, 0.5, -1.0), glm::vec3(0.5, 0.5, -1.0),
+
   };
 
   const glm::vec3 normales[] = {
@@ -48,15 +38,15 @@ ShapeVertex posSommets[] = {
     // face de devant
     0, 1, 2,  1, 2, 3,
     // face de derrière
-    4, 5, 7,  4, 6, 7,
+    4, 5, 6,  5, 6, 7,
     // face de gauche
-    0, 2, 4,  0, 5, 4,
+    8, 9, 10,  9, 10, 11,
     // face de droite
-    1, 3, 6,  1, 7, 6,
+    12, 13, 14,  13, 14, 15,
     // face de dessous
-    2, 3, 4,  3, 6, 4,
+    16, 17, 18,  17, 18, 19,
     // face de dessus
-    0, 1, 7,  0, 5, 7
+    20, 21, 22,  21, 22, 23
   }; 
 
   const GLuint VERTEX_ATTR_SOMMET_POSITION = 0;
@@ -91,9 +81,9 @@ ShapeVertex posSommets[] = {
 
     // VB normales
     glGenBuffers(1, &normaleVbo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, normaleVbo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(normales), normales, GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, normaleVbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(normales), normales, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     // VB couleurs
     glGenBuffers(1, &couleurVbo);
@@ -103,30 +93,27 @@ ShapeVertex posSommets[] = {
     glBindVertexArray(vao);
 
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_POSITION);
+    glEnableVertexAttribArray(VERTEX_ATTR_CUBE_POSITION);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_NORMALE);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXCOORDS);
 
-
     // Chaque vbo est rattaché au vao
     glBindBuffer(GL_ARRAY_BUFFER, sommetVbo);
-    glVertexAttribPointer(VERTEX_ATTR_SOMMET_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
-    glVertexAttribPointer(VERTEX_ATTR_SOMMET_NORMALE, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
-    glVertexAttribPointer(VERTEX_ATTR_SOMMET_TEXCOORDS, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), 0);
+    glVertexAttribPointer(VERTEX_ATTR_SOMMET_POSITION, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
 
     glBindBuffer(GL_ARRAY_BUFFER, positionVbo);
     glEnableVertexAttribArray(VERTEX_ATTR_CUBE_POSITION);
-    glVertexAttribPointer(VERTEX_ATTR_CUBE_POSITION, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+    glVertexAttribPointer(VERTEX_ATTR_CUBE_POSITION, 3, GL_FLOAT, GL_FALSE,  3 * sizeof(float), 0);
     glVertexAttribDivisor(VERTEX_ATTR_CUBE_POSITION, 1);
 
     glBindBuffer(GL_ARRAY_BUFFER, couleurVbo);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXCOORDS);
-    glVertexAttribPointer(VERTEX_ATTR_SOMMET_TEXCOORDS, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+    glVertexAttribPointer(VERTEX_ATTR_SOMMET_TEXCOORDS, 3, GL_FLOAT, GL_FALSE,  3 * sizeof(float), 0);
     glVertexAttribDivisor(VERTEX_ATTR_SOMMET_TEXCOORDS, 1);
 
     glBindBuffer(GL_ARRAY_BUFFER, normaleVbo);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_NORMALE);
-    glVertexAttribPointer(VERTEX_ATTR_SOMMET_NORMALE, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
-    glVertexAttribDivisor(VERTEX_ATTR_SOMMET_NORMALE, 1);
+    glVertexAttribPointer(VERTEX_ATTR_SOMMET_NORMALE, 3, GL_FLOAT, GL_FALSE,  3 * sizeof(float), 0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
@@ -157,13 +144,13 @@ ShapeVertex posSommets[] = {
   void GestionCube::dessinCubeWireframe(){
     // index buffer
     int indexSommets[] = {
-      // face de devant : v0, v1, v2 puis v0, v2, v3
-      0, 1, 1,  3, 3, 2, 2, 0,
+      // face de devant
+      0, 1,   1, 3,   3, 2,   2, 0,
       // face de derrière
-      4, 5, 5, 7, 4, 6, 6, 7,
-      // liage de face
-      0, 5, 1, 7, 3, 6, 2, 4
-    }; 
+      4, 5,   5, 7,   4, 6,   6, 7,
+      // face côté
+      8, 9,   10, 11,   12, 13,   14, 15
+    };
 
     // VB positions sommets
     glGenBuffers(1, &positionSommetVbo);
@@ -233,11 +220,11 @@ ShapeVertex posSommets[] = {
     }
 
     glm::vec3 incrementVec = incrementAxe(axe);
-    bool found = false;
+    bool trouve = false;
 
-    while(!found){   
+    while(!trouve){   
       if(trouveCube(position+incrementVec) == -1){
-        found = true;
+        trouve = true;
       } else {
         position += incrementVec;
       }

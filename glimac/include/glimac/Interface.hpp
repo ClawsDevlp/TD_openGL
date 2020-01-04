@@ -7,6 +7,7 @@
 #include <glimac/scene.hpp>
 #include <glimac/GestionCube.hpp>
 #include <glimac/Cursor.hpp>
+#include <glimac/Lumiere.hpp>
 
 #include <imgui.h>
 #include <imgui_impl_opengl3.h>
@@ -16,13 +17,16 @@ namespace glimac {
 
     class Interface {
 
-    public:
+        public:
 
-    Interface() = default;
-    ~Interface() = default;
+        Interface() = default;
+        ~Interface() = default;
 
-    void initImgui(SDLWindowManager* windowManager);
-    void fenetreImgui(SDLWindowManager* windowManager, int* axe, GestionCube* cube, Cursor* cursor, Scene* scene);
-            
+        void initImgui(SDLWindowManager* windowManager);
+        void creationFenetre(SDLWindowManager* windowManager);
+        void fenetreImgui(int* axe, GestionCube* cube, Cursor* cursor, Scene* scene, Lumiere* lum);
+        void arretFenetre();
+        void stopImgui();
+
     };
 }

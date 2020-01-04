@@ -9,15 +9,16 @@ namespace glimac {
         ImGui_ImplOpenGL3_Init("#version 330 core");
     }
 
-    void Interface::fenetreImgui(SDLWindowManager* windowManager, int* axe, GestionCube* gestionator, Cursor* cursor, Scene* scene){
+    void Interface::creationFenetre(SDLWindowManager* windowManager){
         // Debut def fenetre
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame(windowManager->window);
         ImGui::NewFrame();
-        float col[3];
-        
+    }
+
+    void Interface::fenetreImgui(int* axe, GestionCube* gestionator, Cursor* cursor, Scene* scene, Lumiere* lum){
+        float col[3];    
         ImGui::Begin("Outils de création");
-        
 
         /* PARTIE CURSEUR */
         ImGui::Text("Curseur");
@@ -76,17 +77,33 @@ namespace glimac {
             gestionator->extruDigCube(2, false, cursor->coord);
 
 
+        /* PARTIE LUMIERE */
+        ImGui::Text("Lumières");
+
+        if (ImGui::Button("Jour / Nuit"))
+            lum->modeJourNuit();
+
+
         /* PARTIE TERRAIN */
         ImGui::Text("Terrain");
 
         if (ImGui::Button("Plat"))
-            scene->sceneInit(gestionator);
+            scene->sceneInit(gestionator);  
+        if (ImGui::Button("Generator"))
+            scene->loadRBFscene(gestionator);  
+    }
 
-
+    void Interface::arretFenetre(){
         // Fin def fenetre
         ImGui::End();
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    }
+
+    void Interface::stopImgui(){
+        ImGui_ImplOpenGL3_Shutdown();
+        ImGui_ImplSDL2_Shutdown();
+        ImGui::DestroyContext();
     }
 
 }

@@ -3,6 +3,7 @@
 #include "common.hpp"
 #include <glimac/Program.hpp>
 #include <glimac/TrackballCamera.hpp>
+#include <glimac/Lumiere.hpp>
 #include "glm.hpp"
 
 namespace glimac {
@@ -26,9 +27,11 @@ namespace glimac {
      GLint uLightIntensity;
      GLint uLightDir_vs;
 
+     GLint uJourNuit;
+
      // Méthode
      void initMatrice(Program *program);
-     void renvoiMatrice(TrackballCamera camera, glm::mat4 CubeModelMatrix);
+     void renvoiMatrice(TrackballCamera camera, glm::mat4 CubeModelMatrix, Lumiere lum);
      };
     
 }

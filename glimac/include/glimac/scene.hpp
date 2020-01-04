@@ -9,8 +9,8 @@
 
 namespace glimac {
 
-const int SCENE_DIM = 20;
-
+     const int SCENE_DIM = 20;
+     
 class Scene {
 
 public:

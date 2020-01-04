@@ -14,11 +14,12 @@ uniform mat4 uMVMatrix;
 out vec3 vPosition_vs; // Position du sommet transformé dans l'espace View
 out vec3 vNormal_vs; // Normale du sommet transformté dans l'espace View
 out vec3 vTexCoords; // Cordonnées de texture du sommet
+out vec3 vPosInWorld; // Cordonnées de texture du sommet
 
 void main(){
 	// Passage en coordonnées homogènes
 	vec4 vertexPosition = vec4(aVertexPosition+aCubePosition, 1);
-
+	vPosInWorld = aVertexPosition + aCubePosition;
 	// Calcul des valeurs de sortie
 	vPosition_vs = vec3(uMVMatrix * vertexPosition);
 	vNormal_vs = aVertexNormal;
