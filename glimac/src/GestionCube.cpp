@@ -161,7 +161,7 @@ ShapeVertex posSommets[] = {
       0, 1, 1,  3, 3, 2, 2, 0,
       // face de derrière
       4, 5, 5, 7, 4, 6, 6, 7,
-      // face de gauche
+      // liage de face
       0, 5, 1, 7, 3, 6, 2, 4
     }; 
 
