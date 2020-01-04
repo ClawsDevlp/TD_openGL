@@ -133,8 +133,7 @@ int main(int argc, char** argv) {
         glClearColor(1., 0., 0.5, 1.);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        //reglage.renvoiMatrice(camera, cursor.modifieCube(cursor.coord));
-        reglage.renvoiMatrice(camera, glm::mat4(), lumiere);
+        reglage.renvoiMatrice(camera, lumiere);
         
         gestionator.dessinCube();
         cursor.dessinCursor();

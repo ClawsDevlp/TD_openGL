@@ -82,6 +82,10 @@ namespace glimac {
 
         if (ImGui::Button("Jour / Nuit"))
             lum->modeJourNuit();
+        if (ImGui::Button("Ajout point lumineux"))
+            lum->ajoutPointLum(cursor->coord);
+        if (ImGui::Button("Supprimer point lumineux"))
+            lum->supprPointLum(cursor->coord);
 
 
         /* PARTIE TERRAIN */

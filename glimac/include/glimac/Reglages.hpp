@@ -10,28 +10,23 @@ namespace glimac {
 
      class Reglage {
 
-     public:
-     // Location matrices
-     GLint uMVPMatrix;
-     GLint uMVMatrix;
+          public:
+          // Location matrices
+          GLint uMVPMatrix;
+          GLint uMVMatrix;
 
-     // Matrices
-     glm::mat4 MVMatrix;
-     glm::mat4 ProjMatrix;
-     
-     // Location valeurs lumière
-     GLint uKd;
-     GLint uKs;
-     GLint uShininess;
-     GLint uLightPos_vs;
-     GLint uLightIntensity;
-     GLint uLightDir_vs;
+          // Matrices
+          glm::mat4 MVMatrix;
+          glm::mat4 ProjMatrix;
+          
+          // Location valeurs lumière
+          GLint uNbPoint;
+          GLint uJourNuit;
+          GLint uPointPos;
 
-     GLint uJourNuit;
-
-     // Méthode
-     void initMatrice(Program *program);
-     void renvoiMatrice(TrackballCamera camera, glm::mat4 CubeModelMatrix, Lumiere lum);
+          // Méthode
+          void initMatrice(Program *program);
+          void renvoiMatrice(TrackballCamera camera, Lumiere lum);
      };
     
 }

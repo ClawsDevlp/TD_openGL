@@ -8,18 +8,19 @@ namespace glimac {
 
     class Lumiere {
 
-    public:
+        public:
 
-    Lumiere();
-    ~Lumiere() = default;
+        Lumiere();
+        ~Lumiere() = default;
 
-    bool directional; // mode jour / nuit
+        bool directional; // mode jour / nuit
+        int nbPoint;
+        std::vector<glm::vec3> pointsPositions;
 
-    void modeJourNuit();
-    // Initialisation vbos et vao des lum
-    void initLum();  
-    void ajoutPointLum(glm::vec3 position);
-    void supprPointLum(glm::vec3 position);
+        void modeJourNuit();
+        int trouvePoint(glm::vec3 position);
+        void ajoutPointLum(glm::vec3 position);
+        void supprPointLum(glm::vec3 position);
     
     };
 }

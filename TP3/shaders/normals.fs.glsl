@@ -2,19 +2,19 @@
 
 in vec3 vNormal_vs; // Normale du sommet transformté dans l'espace View
 in vec3 vTexCoords; // Cordonnées de texture du sommet
-
-in vec3 vPosInWorld;
+in vec3 vPosPixel;
 
 
 uniform bool uJourNuit;
+uniform vec3 uPointPos[15];
+uniform int uNbPoint;
 
 out vec4 fColor;
 
-float pointLight(){
-    vec3 dir = vec3(5, 5, 5);
-    dir = normalize(dir);
-    vec3 dirLghtPixel = normalize(vPosInWorld-dir);
-    float pointL = max(-dot(vNormal_vs, dirLghtPixel), 0.);
+float pointLight(vec3 pointPos){
+    vec3 directionLumierePixel = normalize(vPosPixel - pointPos);
+	float d = length(vPosPixel - pointPos);
+    float pointL = max(-dot(vNormal_vs, directionLumierePixel), 0.)/(d);
     return pointL;
 }
 
@@ -32,8 +32,12 @@ void main(){
         luminosite += directionalLight();
     }
 
-    luminosite += pointLight();
+    for(int i=0; i <15; i++){
+        if(uPointPos[i] != vec3(0,0,0)){
+            luminosite += pointLight(uPointPos[i]);
+        }
+    }
     luminosite = min(luminosite, 1);
     
-	fColor = vec4(vTexCoords * luminosite, 1.0);//vNormal_vs;
+	fColor = vec4(vTexCoords * luminosite, 1.0);
 }
