@@ -12,6 +12,7 @@
 #include <glimac/Reglages.hpp>
 #include <glimac/scene.hpp>
 #include <glimac/Interface.hpp>
+#include <fstream> 
 
 #include <imgui.h>
 #include <imgui_impl_opengl3.h>
@@ -107,9 +108,18 @@ int main(int argc, char** argv) {
                         scene.sceneInit(&gestionator);
                     }
 
-                    //Create a random scene following rbf rules
+                    //Creation d'une scene d'apres fonction radiale
                     if (e.key.keysym.scancode == SDL_SCANCODE_R) {
                         scene.loadRBFscene(&gestionator);
+                    } 
+
+                    //Save the actual scene dans un fichier
+                    if (e.key.keysym.scancode == SDL_SCANCODE_S) {
+                        scene.saveScene(&gestionator);
+                    } 
+                    //Ouvre une scène précédemment sauvegardée
+                    if (e.key.keysym.scancode == SDL_SCANCODE_O) {
+                        scene.chargeScene(&gestionator);
                     } 
 
                     // Rajout cube à une colonne (extrud)

@@ -4,6 +4,7 @@
 #include "common.hpp"
 #include "GestionCube.hpp"
 #include "rbf.hpp"
+#include <fstream> 
 #include <vector>
 #include <iostream>
 
@@ -24,6 +25,10 @@ public:
      void sceneInit(GestionCube* ActualGerant);
      //void dessinScene();
      void loadRBFscene(GestionCube* ActualGerant);
+     void saveScene(GestionCube* ActualGerant);
+     void savePositions(GestionCube* ActualGerant);
+     void saveColors(GestionCube* ActualGerant);
+     void chargeScene(GestionCube* ActualGerant);
 };
     
 }
