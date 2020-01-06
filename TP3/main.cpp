@@ -96,9 +96,17 @@ int main(int argc, char** argv) {
 
                     // Mouvement curseur
                     if (e.key.keysym.scancode == SDL_SCANCODE_UP) {
-                        cursor.changeCoord(axe, 1);
+                        cursor.changeCoord(1, 1);
                     } else if (e.key.keysym.scancode == SDL_SCANCODE_DOWN){
-                        cursor.changeCoord(axe, -1);
+                        cursor.changeCoord(1, -1);
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_LEFT){
+                        cursor.changeCoord(0, -1);
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_RIGHT){
+                        cursor.changeCoord(0, 1);
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_O){
+                        cursor.changeCoord(2, -1);
+                    } else if (e.key.keysym.scancode == SDL_SCANCODE_L){
+                        cursor.changeCoord(2, 1);
                     }
 
                     // Ajout cube
@@ -121,7 +129,7 @@ int main(int argc, char** argv) {
                         scene.saveScene(&gestionator);
                     } 
                     //Ouvre une scène précédemment sauvegardée
-                    if (e.key.keysym.scancode == SDL_SCANCODE_O) {
+                    if (e.key.keysym.scancode == SDL_SCANCODE_C) {
                         scene.chargeScene(&gestionator);
                     } 
 
@@ -133,11 +141,6 @@ int main(int argc, char** argv) {
                     // Creuse colonne
                     if (e.key.keysym.scancode == SDL_SCANCODE_D) {
                         gestionator.extruDigCube(axe, false, cursor.getCoord());
-                    }
-
-                    // Changement couleur
-                    if (e.key.keysym.scancode == SDL_SCANCODE_C) {
-                        gestionator.modifCouleur(cursor.getCoord(), glm::vec3(1.,1.,1.));
                     }
             }
         }
@@ -163,8 +166,8 @@ int main(int argc, char** argv) {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
-    //interface.stopImgui(); -> fonctionne pas etrangement ?
-    //SDL_GL_DeleteContext(gl_context);
+    //interface.stopImgui(); // -> fonctionne pas etrangement ?
+    //SDL_GL_DeleteContext(windowManager);
     
     gestionator.supprDonneesCube();
 
