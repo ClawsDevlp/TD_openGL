@@ -25,7 +25,7 @@ set(ALL_LIBRARIES imgui glimac ${SDL2_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBR
 add_subdirectory(glimac)
 add_subdirectory(imgui)
 
-file(GLOB TP_DIRECTORIES "TP*")
+file(GLOB TP_DIRECTORIES "src*")
 
 foreach(TP ${TP_DIRECTORIES})
     add_subdirectory(${TP})
