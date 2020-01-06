@@ -54,13 +54,13 @@ namespace glimac {
     Texture("/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/assets/textures/MoonMap.jpg")
   };
 */
-  const GLuint VERTEX_ATTR_SOMMET_POSITION = 0;
-  const GLuint VERTEX_ATTR_SOMMET_NORMALE = 1;
-  const GLuint VERTEX_ATTR_SOMMET_COULEUR = 2;
-  const GLuint VERTEX_ATTR_CUBE_POSITION = 3;
-  const GLuint VERTEX_ATTR_SOMMET_TEXTURE = 4;
+  constexpr GLuint VERTEX_ATTR_SOMMET_POSITION = 0;
+  constexpr GLuint VERTEX_ATTR_SOMMET_NORMALE = 1;
+  constexpr GLuint VERTEX_ATTR_SOMMET_COULEUR = 2;
+  constexpr GLuint VERTEX_ATTR_CUBE_POSITION = 3;
+  constexpr GLuint VERTEX_ATTR_SOMMET_TEXTURE = 4;
 
-  const int nbCoordSommets = 36;
+  constexpr int nbCoordSommets = 36;
 
   GestionCube::GestionCube(){
     initialisationCube();

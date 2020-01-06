@@ -98,6 +98,14 @@ namespace glimac {
             scene->sceneInit(gestionator);  
         if (ImGui::Button("Generator"))
             scene->loadRBFscene(gestionator);  
+
+        /* PARTIE SAUVEGARDE */
+        ImGui::Text("Sauvegarde");
+
+        if (ImGui::Button("Sauver monde"))
+            scene->saveScene(gestionator);  
+        if (ImGui::Button("Charger dernier monde"))
+            scene->chargeScene(gestionator);  
     }
 
     void Interface::arretFenetre(){
