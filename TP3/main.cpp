@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
     Reglage reglage;
     Scene scene;
     Cursor cursor;
+    bool boolScene = true;
 
     gestionator.ajoutCube(glm::vec3(0,0,0), glm::vec3(0.,0.,1.));
 
@@ -116,7 +117,13 @@ int main(int argc, char** argv) {
 
                     // Initialisation scene
                     if (e.key.keysym.scancode == SDL_SCANCODE_I) {
-                        scene.sceneInit(&gestionator);
+                        if (boolScene){
+                            scene.sceneInit(&gestionator);
+                            boolScene = false;
+                        } else{
+                            scene.suppSceneInit(&gestionator);
+                            boolScene = true;
+                        }
                     }
 
                     //Creation d'une scene d'apres fonction radiale
@@ -151,8 +158,11 @@ int main(int argc, char** argv) {
 
         reglage.renvoiMatrice(camera, lumiere);
         
-        gestionator.dessinCube();
+        glDepthRange(0,0.01); //pour que le curseur soit visible à tout moment
         cursor.dessinCursor();
+        glDepthRange(0.01,1.0); //pour que le curseur soit visible à tout moment
+        gestionator.dessinCube();
+        glDepthRange(0,1.0);
 
         // Fenetre Imgui
         interface.creationFenetre(&windowManager);

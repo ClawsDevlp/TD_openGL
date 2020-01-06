@@ -3,18 +3,6 @@
 
 namespace glimac {
 
-    //glm::vec3 Scenecoord = (0.);
-    /* 
-    void Scene::sceneInit(){
-     	for (int y = 0; y < 1; ++y){
-            for (int x = 0; x < 3; ++x){
-                for (int z = 0; z < 3; ++z){
-                    sceneCube.ajoutCube(glm::vec3(x,y-1,z));
-                }
-            }
-        }
-    } */
-
 void Scene::sceneInit(GestionCube* ActualGerant){
     for (int y = 0; y < 1; ++y){
         for (int x = 0; x < (SCENE_DIM/2)+1; ++x){
@@ -32,6 +20,29 @@ void Scene::sceneInit(GestionCube* ActualGerant){
                     ActualGerant->ajoutCube(glm::vec3(x,y-1,-z), COULEURBASE);
                 } else {
                     ActualGerant->ajoutCube(glm::vec3(x,y-1,z-(SCENE_DIM/2)), COULEURBASE);
+                } 
+            } 
+        }
+    }
+}
+
+void Scene::suppSceneInit(GestionCube* ActualGerant){
+    for (int y = 0; y < 1; ++y){
+        for (int x = 0; x < (SCENE_DIM/2)+1; ++x){
+            for (int z = 0; z < SCENE_DIM+1; ++z){
+                if (z<=10){
+                    ActualGerant->supprCube(glm::vec3(-x,y-1,-z));
+                } else {
+                    ActualGerant->supprCube(glm::vec3(-x,y-1,z-(SCENE_DIM/2)));
+                } 
+            } 
+        }
+        for (int x = 1; x < (SCENE_DIM/2)+1; ++x){
+            for (int z = 0; z < SCENE_DIM+1; ++z){
+                if (z<=(SCENE_DIM/2)){
+                    ActualGerant->supprCube(glm::vec3(x,y-1,-z));
+                } else {
+                    ActualGerant->supprCube(glm::vec3(x,y-1,z-(SCENE_DIM/2)));
                 } 
             } 
         }

@@ -23,7 +23,7 @@ namespace glimac {
           ~Scene() = default;
 
           void sceneInit(GestionCube* ActualGerant);
-          //void dessinScene();
+          void suppSceneInit(GestionCube* ActualGerant);
           void loadRBFscene(GestionCube* ActualGerant);
           void saveScene(GestionCube* ActualGerant);
           void savePositions(GestionCube* ActualGerant);

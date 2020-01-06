@@ -95,7 +95,9 @@ namespace glimac {
         ImGui::Text("Terrain");
 
         if (ImGui::Button("Plat"))
-            scene->sceneInit(gestionator);  
+            scene->sceneInit(gestionator);
+        if (ImGui::Button("SupprPlat"))
+                scene->suppSceneInit(gestionator);
         if (ImGui::Button("Generator"))
             scene->loadRBFscene(gestionator);  
 
