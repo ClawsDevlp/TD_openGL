@@ -24,7 +24,7 @@ namespace glimac {
         }
     }
 
-    int Lumiere::trouvePoint(glm::vec3 position){
+    int Lumiere::trouvePoint(const glm::vec3 position){
         for( int i = 0; i < pointsPositions.size(); ++i ){
             if( pointsPositions[i] == position ){
                 return i;
@@ -33,7 +33,7 @@ namespace glimac {
         return -1;
     }
 
-    void Lumiere::ajoutPointLum(glm::vec3 position){
+    void Lumiere::ajoutPointLum(const glm::vec3 position){
         if(trouvePoint(position) == -1){
             pointsPositions.push_back(position);
             nbPoint++;
@@ -42,7 +42,7 @@ namespace glimac {
         }
     }
 
-    void Lumiere::supprPointLum(glm::vec3 position){
+    void Lumiere::supprPointLum(const glm::vec3 position){
         int index = trouvePoint(position);
 
         if( index != -1 ){

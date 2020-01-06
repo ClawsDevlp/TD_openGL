@@ -6,6 +6,7 @@
 namespace glimac {
 
      class Cursor {
+          
           private:
           GestionCube cursorCube;
           glm::vec3 coord;
@@ -18,7 +19,9 @@ namespace glimac {
           glm::vec3 getCoord();
           void setCoord(glm::vec3 nCoord);
 
-          void changeCoord(int axe, int increment);
+          // Change les coordonnées du curseur (déplacement)
+          void changeCoord(const int axe, const int increment);
+          // Dessine cursorCube en wireframe
           void dessinCursor();
 
           friend class Interface;

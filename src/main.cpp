@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 
     gestionator.ajoutCube(glm::vec3(0,0,0), glm::vec3(0.,0.,1.));
 
-    reglage.initMatrice(&program);
+    reglage.initUniform(&program);
 
     // Application loop:
     int axe = 0;
@@ -156,7 +156,7 @@ int main(int argc, char** argv) {
         glClearColor(1., 0., 0.5, 1.);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        reglage.renvoiMatrice(camera, lumiere);
+        reglage.renvoiUniform(camera, lumiere);
         
         glDepthRange(0,0.01); //pour que le curseur soit visible à tout moment
         cursor.dessinCursor();
@@ -176,7 +176,7 @@ int main(int argc, char** argv) {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
-    //interface.stopImgui(); // -> fonctionne pas etrangement ?
+    //interface.stopImgui();
     //SDL_GL_DeleteContext(windowManager);
     
     gestionator.supprDonneesCube();

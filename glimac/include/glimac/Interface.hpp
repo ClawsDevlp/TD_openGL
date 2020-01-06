@@ -22,10 +22,15 @@ namespace glimac {
         Interface() = default;
         ~Interface() = default;
 
-        void initImgui(SDLWindowManager* windowManager);
-        void creationFenetre(SDLWindowManager* windowManager);
-        void fenetreImgui(int* axe, GestionCube* cube, Cursor* cursor, Scene* scene, Lumiere* lum);
+        // Initialise Imgui
+        void initImgui(const SDLWindowManager* windowManager);
+        // Initialise la fenêtre Imgui
+        void creationFenetre(const SDLWindowManager* windowManager);
+        // Contient les fonctionnalités de la fenêtre
+        void fenetreImgui(int* axe, GestionCube* cube, const Cursor* cursor, Scene* scene, Lumiere* lum);
+        // Arrêt de la fenêtre Imgui
         void arretFenetre();
+        // Libération des ressources Imgui (non fonctionnel)
         void stopImgui();
     };
 }

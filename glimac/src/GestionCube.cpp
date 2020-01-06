@@ -66,19 +66,19 @@ namespace glimac {
     initialisationCube();
   }
 
-  glm::vec3 GestionCube::getCubesPositions(int index){
+  glm::vec3 GestionCube::getCubesPositions(const int index){
     return cubesPositions[index];
   }
   int GestionCube::getCubesPositionsSize(){
     return cubesPositions.size();
   }
-  void GestionCube::setCubesPositions(int index, glm::vec3 donnee){
+  void GestionCube::setCubesPositions(const int index, const glm::vec3 donnee){
     cubesPositions[index] = donnee;
   }
-  glm::vec3 GestionCube::getCubesCouleurs(int index){
+  glm::vec3 GestionCube::getCubesCouleurs(const int index){
     return cubesCouleurs[index];
   }
-  void GestionCube::setCubesCouleurs(int index, glm::vec3 donnee){
+  void GestionCube::setCubesCouleurs(const int index, const glm::vec3 donnee){
     cubesCouleurs[index] = donnee;
   }
 
@@ -200,7 +200,7 @@ namespace glimac {
     glBindVertexArray(0);
   };
 
-  void GestionCube::ajoutCube(glm::vec3 position, glm::vec3 color){
+  void GestionCube::ajoutCube(const glm::vec3 position, const glm::vec3 color){
     if(trouveCube(position) == -1){
       // Ajout du cube dans position et couleur
       cubesPositions.push_back(position);
@@ -213,7 +213,7 @@ namespace glimac {
     }
   }
 
-  int GestionCube::trouveCube(glm::vec3 position){
+  int GestionCube::trouveCube(const glm::vec3 position){
     for( int i=0; i < cubesPositions.size(); ++i ){
       if( cubesPositions[i] == position ){
         return i;
@@ -222,7 +222,7 @@ namespace glimac {
     return -1;
   }
 
-  void GestionCube::supprCube(glm::vec3 position){
+  void GestionCube::supprCube(const glm::vec3 position){
     int index = trouveCube(position);
 
     if( index != -1 ){
@@ -237,7 +237,7 @@ namespace glimac {
     }
   }
 
-  glm::vec3 GestionCube::incrementAxe(int axe) {
+  glm::vec3 GestionCube::incrementAxe(const int axe) {
     glm::vec3 incrementAxe;
 
     if (axe == 0) {
@@ -251,7 +251,7 @@ namespace glimac {
     return incrementAxe;
   }
 
-  int GestionCube::extruDigCube(int axe, bool ExtrOrDig, glm::vec3 position){
+  int GestionCube::extruDigCube(const int axe, const bool ExtrOrDig, glm::vec3 position){
     int index = trouveCube(position);
 
     if(index == -1){
@@ -280,18 +280,18 @@ namespace glimac {
     return 1;
   }
 
-  glm::vec3 GestionCube::trouvCouleur(glm::vec3 position) {
+  glm::vec3 GestionCube::trouvCouleur(const glm::vec3 position) {
     int index = trouveCube(position);
     return cubesCouleurs[index];
   }
 
-  void GestionCube::modifCouleur(glm::vec3 position, glm::vec3 couleur){
+  void GestionCube::modifCouleur(const glm::vec3 position, const glm::vec3 couleur){
     int index = trouveCube(position);
     cubesCouleurs[index] = couleur;
     miseAJourGPU();
   }
 
-  void GestionCube::changeType(glm::vec3 position, int nType){
+  void GestionCube::changeType(const glm::vec3 position, const int nType){
     type = nType;
     int index = trouveCube(position);
     cubesTextures[index] = nType;

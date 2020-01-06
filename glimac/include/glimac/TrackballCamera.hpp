@@ -4,9 +4,11 @@
 
 #include "common.hpp"
 
+
 namespace glimac {
 
 class TrackballCamera {
+
     private:
     float m_fDistance;
     float m_fAngleX;
@@ -17,40 +19,19 @@ class TrackballCamera {
         m_fDistance(22.), m_fAngleX(10.), m_fAngleY(10.) {
     }
 
-    float getDistance() {
-        return m_fDistance;
-    }
+    // Setters et Getters
+    float getDistance();
+    float getAngleX();
+    float getAngleY();
 
-    float getAngleX() {
-        return m_fAngleX;
-    }
-
-    float getAngleY() {
-        return m_fAngleY;
-    }
-
-    void moveFront(float delta){
-      //  if(delta > 0) { 
-            m_fDistance += delta; 
-      //  } else 
-    }
-
-    void rotateLeft(float degrees){
-        m_fAngleY += degrees;
-    }
-
-    void rotateUp(float degrees){
-        m_fAngleX += degrees;
-    }
-
-    glm::mat4 getViewMatrix() const {
-        glm::mat4 ViewMatrix;
-        ViewMatrix = glm::translate(ViewMatrix, glm::vec3(0, 0, -m_fDistance)); // Translation
-        ViewMatrix = glm::rotate(ViewMatrix, glm::radians(m_fAngleX), glm::vec3(1, 0, 0)); // Rotation
-        ViewMatrix = glm::rotate(ViewMatrix, glm::radians(m_fAngleY), glm::vec3(0, 1, 0)); // Rotation
-        return ViewMatrix;
-    }
-
+    // Mouvement avant et arriere de la camera
+    void moveFront(const float delta);
+    // Rotation gauche à droite de la caméra
+    void rotateLeft(const float degrees);
+    // Rotation haut bas de la caméra
+    void rotateUp(const float degrees);
+    // Obtenir la matrice de vue
+    glm::mat4 getViewMatrix() const;
 };
     
 }

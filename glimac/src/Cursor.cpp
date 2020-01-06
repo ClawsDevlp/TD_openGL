@@ -17,7 +17,7 @@ namespace glimac {
         coord = nCoord;
     } 
 
-    void Cursor::changeCoord(int axe, int increment){
+    void Cursor::changeCoord(const int axe, const int increment){
         cursorCube.supprCube(coord);
 
         if (axe == 0) {

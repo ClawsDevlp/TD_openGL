@@ -29,9 +29,10 @@ namespace glimac {
 
           public:
           
-          // Méthode
-          void initMatrice(Program *program);
-          void renvoiMatrice(TrackballCamera camera, Lumiere lum);
+          // Initialise matrices et variables uniform
+          void initUniform(const Program *program);
+          // Renvoie matrices et variables uniform
+          void renvoiUniform(const TrackballCamera camera, Lumiere lum);
      };
     
 }

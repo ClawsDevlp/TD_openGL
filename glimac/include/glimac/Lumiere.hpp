@@ -14,19 +14,22 @@ namespace glimac {
 
         public:
         std::vector<glm::vec3> pointsPositions;
+
         Lumiere();
         ~Lumiere() = default;
 
         // Getters et Setters
         int getNbPoint();
         int getDirectional();
-        glm::vec3 getPointsPositions(int index);
+        glm::vec3 getPointsPositions(const int index);
 
+        // Mode jour ou nuit
         void modeJourNuit();
-        int trouvePoint(glm::vec3 position);
-        void ajoutPointLum(glm::vec3 position);
-        void supprPointLum(glm::vec3 position);
-    
-        friend class Reglages;
+        // Trouve l'indice du point dans pointsPositions à la position donnée
+        int trouvePoint(const glm::vec3 position);
+        // Ajoute un point dans pointsPositions
+        void ajoutPointLum(const glm::vec3 position);
+        // Supprime un point dans pointsPositions
+        void supprPointLum(const glm::vec3 position);
     };
 }

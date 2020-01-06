@@ -27,5 +27,3 @@ namespace glimac {
     }
 
 }
-
-    //charger les textures

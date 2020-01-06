@@ -2,7 +2,7 @@
 
 namespace glimac {
 
-    void Reglage::initMatrice(Program *program) {
+    void Reglage::initUniform(const Program *program) {
         uMVPMatrix = glGetUniformLocation(program->getGLId(), "uMVPMatrix");
         uMVMatrix = glGetUniformLocation(program->getGLId(), "uMVMatrix");
 
@@ -21,7 +21,7 @@ namespace glimac {
         ProjMatrix = glm::perspective(glm::radians(70.f), 800.f/600.f, 0.1f, 100.f);
     }
 
-    void Reglage::renvoiMatrice(TrackballCamera camera, Lumiere lum){
+    void Reglage::renvoiUniform(const TrackballCamera camera, Lumiere lum){
         const glm::mat4 ViewMatrix = camera.getViewMatrix();
         glm::mat4 CubeModelMatrix;
         MVMatrix = ViewMatrix*CubeModelMatrix;

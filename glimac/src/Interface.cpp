@@ -2,21 +2,21 @@
 
 namespace glimac {
 
-    void Interface::initImgui(SDLWindowManager* windowManager){
+    void Interface::initImgui(const SDLWindowManager* windowManager){
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
         ImGui_ImplSDL2_InitForOpenGL(windowManager->window, SDL_GL_CreateContext(windowManager->window));
         ImGui_ImplOpenGL3_Init("#version 330 core");
     }
 
-    void Interface::creationFenetre(SDLWindowManager* windowManager){
+    void Interface::creationFenetre(const SDLWindowManager* windowManager){
         // Debut def fenetre
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame(windowManager->window);
         ImGui::NewFrame();
     }
 
-    void Interface::fenetreImgui(int* axe, GestionCube* gestionator, Cursor* cursor, Scene* scene, Lumiere* lum){
+    void Interface::fenetreImgui(int* axe, GestionCube* gestionator, const Cursor* cursor, Scene* scene, Lumiere* lum){
         float col[3];    
         ImGui::Begin("Outils de création");
 
@@ -96,6 +96,7 @@ namespace glimac {
 
         if (ImGui::Button("Plat"))
             scene->sceneInit(gestionator);
+        ImGui::SameLine();
         if (ImGui::Button("SupprPlat"))
                 scene->suppSceneInit(gestionator);
         if (ImGui::Button("Generator"))

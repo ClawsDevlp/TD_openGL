@@ -15,13 +15,12 @@ namespace glimac {
 
         public:
 
-        Texture(std::string chemin);
+        Texture(const std::string chemin);
         ~Texture();
 
+        // Bind la texture
         void bind();
-        void debind();
-
-
-    
+        // Debind la texture
+        void debind();    
     };
 }
