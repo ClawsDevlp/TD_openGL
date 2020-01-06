@@ -87,7 +87,7 @@ void Scene::saveColors(GestionCube* ActualGerant){
     } 
     //rentre les données de notre scène dans le fichier de sauvegarde
     for (int i = 0; i < (ActualGerant->getCubesPositionsSize()); i++){
-        objetfichier << ActualGerant->getCubesPositions(i).x << " " << ActualGerant->getCubesPositions(i).y << " " << ActualGerant->getCubesPositions(i).z << " ";
+        objetfichier << ActualGerant->getCubesCouleurs(i).x << " " << ActualGerant->getCubesCouleurs(i).y << " " << ActualGerant->getCubesCouleurs(i).z << " ";
     }
     objetfichier.close(); //on ferme le fichier
 }
@@ -112,8 +112,8 @@ void Scene::chargeScene(GestionCube* ActualGerant){
 
     //De meme pour les données de couleurs
     std::ifstream fichierCouleur("../TD_openGL/sceneColors.txt");
-    int lectureColors;
-    std::vector<int> tabCol;
+    float lectureColors;
+    std::vector<float> tabCol;
     if (fichierCouleur.bad()){
         std::cout<<"échec de l'ouverture du fichier sauvegarde"<<std::endl;
     } 

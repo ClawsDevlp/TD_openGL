@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
     Scene scene;
     Cursor cursor;
 
-    gestionator.ajoutCube(glm::vec3(0,0,0), glm::vec3(0,0,1));
+    gestionator.ajoutCube(glm::vec3(0,0,0), glm::vec3(0.,0.,1.));
 
     reglage.initMatrice(&program);
 
@@ -103,7 +103,7 @@ int main(int argc, char** argv) {
 
                     // Ajout cube
                     if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-                        gestionator.ajoutCube(cursor.getCoord(), glm::vec3(0,1,0));
+                        gestionator.ajoutCube(cursor.getCoord(), COULEURBASE);
                     }
 
                     // Initialisation scene

@@ -252,8 +252,9 @@ namespace glimac {
   }
 
   int GestionCube::extruDigCube(int axe, bool ExtrOrDig, glm::vec3 position){
+    int index = trouveCube(position);
 
-    if(trouveCube(position) == -1){
+    if(index == -1){
       std::cout << "Vous n'êtes pas sur une colonne" << std::endl;
       return -1;
     }
@@ -271,7 +272,7 @@ namespace glimac {
 
     // ExtrOrDig permet de savoir si l'utilisateur extrud ou dig
     if(ExtrOrDig){
-      ajoutCube(position+incrementVec, glm::vec3(0,1,0));
+      ajoutCube(position+incrementVec, cubesCouleurs[index]);
     } else {
       supprCube(position);
     }

@@ -39,7 +39,7 @@ namespace glimac {
         ImGui::Text("Cube");
 
         if (ImGui::Button("Ajout"))
-            gestionator->ajoutCube(cursor->coord, glm::vec3(0,1,0));
+            gestionator->ajoutCube(cursor->coord, COULEURBASE);
         ImGui::SameLine();
         if (ImGui::Button("Supression"))
             gestionator->supprCube(cursor->coord);

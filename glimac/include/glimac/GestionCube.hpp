@@ -8,6 +8,8 @@
 
 namespace glimac {
 
+     const glm::vec3 COULEURBASE = glm::vec3(0.,1.,0.);
+
      class GestionCube {
 
           private:
