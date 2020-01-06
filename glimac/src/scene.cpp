@@ -71,8 +71,8 @@ void Scene::savePositions(GestionCube* ActualGerant){
         std::cout<<"échec de la création d'un fichier sauvegarde"<<std::endl;
     } 
     //rentre les données de notre scène dans le fichier de sauvegarde
-    for (int i = 0; i < (ActualGerant->cubesPositions).size(); i++){
-        objetfichier << ActualGerant->cubesPositions[i].x << " " << ActualGerant->cubesPositions[i].y << " " << ActualGerant->cubesPositions[i].z << " ";
+    for (int i = 0; i < (ActualGerant->getCubesPositionsSize()); i++){
+        objetfichier << ActualGerant->getCubesPositions(i).x << " " << ActualGerant->getCubesPositions(i).y << " " << ActualGerant->getCubesPositions(i).z << " ";
     }
     objetfichier.close(); //on ferme le fichier
 }
@@ -86,8 +86,8 @@ void Scene::saveColors(GestionCube* ActualGerant){
         std::cout<<"échec de la création d'un fichier sauvegarde pour les couleurs"<<std::endl;
     } 
     //rentre les données de notre scène dans le fichier de sauvegarde
-    for (int i = 0; i < (ActualGerant->cubesCouleurs).size(); i++){
-        objetfichier << ActualGerant->cubesCouleurs[i].x << " " << ActualGerant->cubesCouleurs[i].y << " " << ActualGerant->cubesCouleurs[i].z << " ";
+    for (int i = 0; i < (ActualGerant->getCubesPositionsSize()); i++){
+        objetfichier << ActualGerant->getCubesPositions(i).x << " " << ActualGerant->getCubesPositions(i).y << " " << ActualGerant->getCubesPositions(i).z << " ";
     }
     objetfichier.close(); //on ferme le fichier
 }

@@ -51,6 +51,9 @@ namespace glimac {
         ImGui::ColorEdit3("", col);
         gestionator->modifCouleur(cursor->coord, glm::vec3(col[0], col[1], col[2]));
 
+        if (ImGui::Button("Texture"))
+            gestionator->changeType(cursor->coord, 1);
+
         /* PARTIE COLONNE */
         ImGui::Text("Colonne");
 

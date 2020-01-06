@@ -137,17 +137,17 @@ imgui/fast:
 .PHONY : imgui/fast
 
 #=============================================================================
-# Target rules for targets named TP3_exo3bis
+# Target rules for targets named TP3_main
 
 # Build rule for target.
-TP3_exo3bis: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TP3_exo3bis
-.PHONY : TP3_exo3bis
+TP3_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TP3_main
+.PHONY : TP3_main
 
 # fast build rule for target.
-TP3_exo3bis/fast:
-	$(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/build
-.PHONY : TP3_exo3bis/fast
+TP3_main/fast:
+	$(MAKE) -f TP3/CMakeFiles/TP3_main.dir/build.make TP3/CMakeFiles/TP3_main.dir/build
+.PHONY : TP3_main/fast
 
 # Help Target
 help:
@@ -159,7 +159,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... glimac"
 	@echo "... imgui"
-	@echo "... TP3_exo3bis"
+	@echo "... TP3_main"
 .PHONY : help
 
 

@@ -48,16 +48,38 @@ namespace glimac {
     // face de dessus
     20, 21, 22,  21, 22, 23
   }; 
-
+/*
+  const Texture indexTextures[]={
+    Texture("/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/assets/textures/bois.jpg"),
+    Texture("/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/assets/textures/MoonMap.jpg")
+  };
+*/
   const GLuint VERTEX_ATTR_SOMMET_POSITION = 0;
   const GLuint VERTEX_ATTR_SOMMET_NORMALE = 1;
-  const GLuint VERTEX_ATTR_SOMMET_TEXCOORDS = 2;
+  const GLuint VERTEX_ATTR_SOMMET_COULEUR = 2;
   const GLuint VERTEX_ATTR_CUBE_POSITION = 3;
+  const GLuint VERTEX_ATTR_SOMMET_TEXTURE = 4;
 
   const int nbCoordSommets = 36;
 
   GestionCube::GestionCube(){
     initialisationCube();
+  }
+
+  glm::vec3 GestionCube::getCubesPositions(int index){
+    return cubesPositions[index];
+  }
+  int GestionCube::getCubesPositionsSize(){
+    return cubesPositions.size();
+  }
+  void GestionCube::setCubesPositions(int index, glm::vec3 donnee){
+    cubesPositions[index] = donnee;
+  }
+  glm::vec3 GestionCube::getCubesCouleurs(int index){
+    return cubesCouleurs[index];
+  }
+  void GestionCube::setCubesCouleurs(int index, glm::vec3 donnee){
+    cubesCouleurs[index] = donnee;
   }
 
   void GestionCube::initialisationCube(){
@@ -87,6 +109,9 @@ namespace glimac {
 
     // VB couleurs
     glGenBuffers(1, &couleurVbo);
+    
+    // VB couleurs
+    glGenBuffers(1, &textureVbo);
           
     // vertex array
     glGenVertexArrays(1, &vao);
@@ -95,7 +120,8 @@ namespace glimac {
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_POSITION);
     glEnableVertexAttribArray(VERTEX_ATTR_CUBE_POSITION);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_NORMALE);
-    glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXCOORDS);
+    glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_COULEUR);
+    glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXTURE);
 
     // Chaque vbo est rattaché au vao
     glBindBuffer(GL_ARRAY_BUFFER, sommetVbo);
@@ -107,9 +133,14 @@ namespace glimac {
     glVertexAttribDivisor(VERTEX_ATTR_CUBE_POSITION, 1);
 
     glBindBuffer(GL_ARRAY_BUFFER, couleurVbo);
-    glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXCOORDS);
-    glVertexAttribPointer(VERTEX_ATTR_SOMMET_TEXCOORDS, 3, GL_FLOAT, GL_FALSE,  3 * sizeof(float), 0);
-    glVertexAttribDivisor(VERTEX_ATTR_SOMMET_TEXCOORDS, 1);
+    glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_COULEUR);
+    glVertexAttribPointer(VERTEX_ATTR_SOMMET_COULEUR, 3, GL_FLOAT, GL_FALSE,  3 * sizeof(float), 0);
+    glVertexAttribDivisor(VERTEX_ATTR_SOMMET_COULEUR, 1);
+
+    glBindBuffer(GL_ARRAY_BUFFER, textureVbo);
+    glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_TEXTURE);
+    glVertexAttribPointer(VERTEX_ATTR_SOMMET_TEXTURE, 2, GL_FLOAT, GL_FALSE,  2 * sizeof(float), 0);
+    glVertexAttribDivisor(VERTEX_ATTR_SOMMET_TEXTURE, 1);
 
     glBindBuffer(GL_ARRAY_BUFFER, normaleVbo);
     glEnableVertexAttribArray(VERTEX_ATTR_SOMMET_NORMALE);
@@ -124,6 +155,8 @@ namespace glimac {
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * cubesPositions.size(), cubesPositions.size() > 0 ? &cubesPositions[0] : nullptr, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, couleurVbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * cubesCouleurs.size(), cubesCouleurs.size() > 0 ? &cubesCouleurs[0] : nullptr, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, textureVbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(int) * cubesTextures.size(), cubesTextures.size() > 0 ? &cubesTextures[0] : nullptr, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
   }
 
@@ -132,13 +165,16 @@ namespace glimac {
     glDeleteBuffers(1, &positionSommetVbo);
     glDeleteBuffers(1, &sommetVbo);
     glDeleteVertexArrays(1, &vao);
+    //cubesTextures[0]->~Texture();
   }
 
   void GestionCube::dessinCube(){
+    //textureCube->bind();
     glBindVertexArray(vao);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, positionSommetVbo);
     glDrawElementsInstanced(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0, cubesPositions.size());
     glBindVertexArray(0);
+    //textureCube->debind();
   }
 
   void GestionCube::dessinCubeWireframe(){
@@ -148,7 +184,7 @@ namespace glimac {
       0, 1,   1, 3,   3, 2,   2, 0,
       // face de derrière
       4, 5,   5, 7,   4, 6,   6, 7,
-      // face côté
+      // faces côtés
       8, 9,   10, 11,   12, 13,   14, 15
     };
 
@@ -165,19 +201,25 @@ namespace glimac {
   };
 
   void GestionCube::ajoutCube(glm::vec3 position, glm::vec3 color){
-    supprCube(position);
-    cubesPositions.push_back(position);
-    cubesCouleurs.push_back(color);
-    miseAJourGPU();
+    if(trouveCube(position) == -1){
+      // Ajout du cube dans position et couleur
+      cubesPositions.push_back(position);
+      cubesCouleurs.push_back(color);
+      cubesTextures.push_back(0);
+
+      miseAJourGPU();
+    } else {
+      std::cout << "Cube deja posé ici" << std::endl;
+    }
   }
 
   int GestionCube::trouveCube(glm::vec3 position){
-    for( int k = 0; k < cubesPositions.size(); ++k){
-      if( glm::length(position-cubesPositions[k]) < 0.1f){
-        return k;
+    for( int i=0; i < cubesPositions.size(); ++i ){
+      if( cubesPositions[i] == position ){
+        return i;
       }
     }
-    return -1; // si on ne l'a pas trouvé
+    return -1;
   }
 
   void GestionCube::supprCube(glm::vec3 position){
@@ -186,13 +228,10 @@ namespace glimac {
     if( index != -1 ){
       int lastIndex = cubesPositions.size() - 1;
 
-      // Supression du cube dans position
-      std::swap(cubesPositions[index], cubesPositions[lastIndex]);
-      cubesPositions.pop_back();
-      
-      // Supression du cube dans couleur
-      std::swap(cubesCouleurs[index], cubesCouleurs[lastIndex]);
-      cubesCouleurs.pop_back();
+      // Supression du cube dans position et couleur
+      cubesPositions.erase(cubesPositions.begin() + index);
+      cubesCouleurs.erase(cubesCouleurs.begin() + index);
+      cubesTextures.erase(cubesTextures.begin() + index);
 
       miseAJourGPU();
     }
@@ -232,7 +271,7 @@ namespace glimac {
 
     // ExtrOrDig permet de savoir si l'utilisateur extrud ou dig
     if(ExtrOrDig){
-      ajoutCube(position+incrementVec, glm::vec3(0,5,0));
+      ajoutCube(position+incrementVec, glm::vec3(0,1,0));
     } else {
       supprCube(position);
     }
@@ -250,4 +289,20 @@ namespace glimac {
     cubesCouleurs[index] = couleur;
     miseAJourGPU();
   }
+
+  void GestionCube::changeType(glm::vec3 position, int nType){
+    type = nType;
+    int index = trouveCube(position);
+    cubesTextures[index] = nType;
+    miseAJourGPU();
+  }
+
+/*
+  Texture* GestionCube::ajoutTexture(){
+    if(type == 1){
+      return new Texture("/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/assets/textures/bois.jpg");
+    } else if(type == 0){
+      return new Texture("/home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/TP3/assets/textures/MoonMap.jpg");
+    }
+  }*/
 }

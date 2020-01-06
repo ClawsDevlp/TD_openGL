@@ -1,1 +1,0 @@
-/usr/bin/g++-7  -g  -rdynamic CMakeFiles/TP3_exo1_sphere.dir/exo1_sphere.cpp.o  -o TP3_exo1_sphere ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

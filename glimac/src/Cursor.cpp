@@ -8,6 +8,15 @@ namespace glimac {
             cursorCube.ajoutCube(coord, glm::vec3(0,0,0));
         }
 
+    
+    glm::vec3 Cursor::getCoord(){
+        return coord;
+    }
+
+    void Cursor::setCoord(glm::vec3 nCoord){
+        coord = nCoord;
+    } 
+
     void Cursor::changeCoord(int axe, int increment){
         cursorCube.supprCube(coord);
 

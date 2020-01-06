@@ -12,23 +12,23 @@ namespace glimac {
 
      const int SCENE_DIM = 20;
      
-class Scene {
+     class Scene {
 
-public:
+     public:
 
-     //GestionCube sceneCube;
-     //glm::vec3 Scenecoord;
+          //GestionCube sceneCube;
+          //glm::vec3 Scenecoord;
 
-     Scene() = default;
-     ~Scene() = default;
+          Scene() = default;
+          ~Scene() = default;
 
-     void sceneInit(GestionCube* ActualGerant);
-     //void dessinScene();
-     void loadRBFscene(GestionCube* ActualGerant);
-     void saveScene(GestionCube* ActualGerant);
-     void savePositions(GestionCube* ActualGerant);
-     void saveColors(GestionCube* ActualGerant);
-     void chargeScene(GestionCube* ActualGerant);
-};
+          void sceneInit(GestionCube* ActualGerant);
+          //void dessinScene();
+          void loadRBFscene(GestionCube* ActualGerant);
+          void saveScene(GestionCube* ActualGerant);
+          void savePositions(GestionCube* ActualGerant);
+          void saveColors(GestionCube* ActualGerant);
+          void chargeScene(GestionCube* ActualGerant);
+     };
     
 }

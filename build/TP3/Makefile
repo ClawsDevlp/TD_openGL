@@ -111,46 +111,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-TP3/CMakeFiles/TP3_exo3bis.dir/rule:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f CMakeFiles/Makefile2 TP3/CMakeFiles/TP3_exo3bis.dir/rule
-.PHONY : TP3/CMakeFiles/TP3_exo3bis.dir/rule
+TP3/CMakeFiles/TP3_main.dir/rule:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f CMakeFiles/Makefile2 TP3/CMakeFiles/TP3_main.dir/rule
+.PHONY : TP3/CMakeFiles/TP3_main.dir/rule
 
 # Convenience name for target.
-TP3_exo3bis: TP3/CMakeFiles/TP3_exo3bis.dir/rule
+TP3_main: TP3/CMakeFiles/TP3_main.dir/rule
 
-.PHONY : TP3_exo3bis
+.PHONY : TP3_main
 
 # fast build rule for target.
-TP3_exo3bis/fast:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/build
-.PHONY : TP3_exo3bis/fast
+TP3_main/fast:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_main.dir/build.make TP3/CMakeFiles/TP3_main.dir/build
+.PHONY : TP3_main/fast
 
-exo3bis.o: exo3bis.cpp.o
+main.o: main.cpp.o
 
-.PHONY : exo3bis.o
+.PHONY : main.o
 
 # target to build an object file
-exo3bis.cpp.o:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.o
-.PHONY : exo3bis.cpp.o
+main.cpp.o:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_main.dir/build.make TP3/CMakeFiles/TP3_main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-exo3bis.i: exo3bis.cpp.i
+main.i: main.cpp.i
 
-.PHONY : exo3bis.i
+.PHONY : main.i
 
 # target to preprocess a source file
-exo3bis.cpp.i:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.i
-.PHONY : exo3bis.cpp.i
+main.cpp.i:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_main.dir/build.make TP3/CMakeFiles/TP3_main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-exo3bis.s: exo3bis.cpp.s
+main.s: main.cpp.s
 
-.PHONY : exo3bis.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-exo3bis.cpp.s:
-	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_exo3bis.dir/build.make TP3/CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.s
-.PHONY : exo3bis.cpp.s
+main.cpp.s:
+	cd /home/claclicla/Documents/ANNEE2/OpenGL_NEUF/imac-s3-opengl-master/TD_openGL/build && $(MAKE) -f TP3/CMakeFiles/TP3_main.dir/build.make TP3/CMakeFiles/TP3_main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -159,11 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... TP3_exo3bis"
+	@echo "... TP3_main"
 	@echo "... edit_cache"
-	@echo "... exo3bis.o"
-	@echo "... exo3bis.i"
-	@echo "... exo3bis.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

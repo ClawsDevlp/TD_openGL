@@ -6,6 +6,16 @@ namespace glimac {
     : directional(true)
     { }
 
+    int Lumiere::getDirectional(){
+        return directional;
+    }
+    int Lumiere::getNbPoint(){
+        return nbPoint;
+    }
+    glm::vec3 Lumiere::getPointsPositions(int index){
+        return pointsPositions[index];
+    }
+
     void Lumiere::modeJourNuit(){
         if(directional){
             directional = false;
@@ -15,29 +25,29 @@ namespace glimac {
     }
 
     int Lumiere::trouvePoint(glm::vec3 position){
-        for( int k = 0; k < pointsPositions.size(); ++k){
-            if( glm::length(position-pointsPositions[k]) < 0.1f){
-                return k;
+        for( int i = 0; i < pointsPositions.size(); ++i ){
+            if( pointsPositions[i] == position ){
+                return i;
             }
         }
-        return -1; // si on ne l'a pas trouvé
+        return -1;
     }
 
     void Lumiere::ajoutPointLum(glm::vec3 position){
-        supprPointLum(position);
-        pointsPositions.push_back(position);
-        nbPoint++;
+        if(trouvePoint(position) == -1){
+            pointsPositions.push_back(position);
+            nbPoint++;
+        } else {
+            std::cout << "Lumière deja posée ici" << std::endl;
+        }
     }
 
     void Lumiere::supprPointLum(glm::vec3 position){
         int index = trouvePoint(position);
 
         if( index != -1 ){
-            int lastIndex = pointsPositions.size() - 1;
-
             // Supression du cube dans position
-            std::swap(pointsPositions[index], pointsPositions[lastIndex]);
-            pointsPositions.pop_back();
+            pointsPositions.erase(pointsPositions.begin() + index);
             nbPoint--;
         }
     }

@@ -1,1 +1,0 @@
-/usr/bin/g++-7  -g  -rdynamic CMakeFiles/TP3_exo3bis.dir/exo3bis.cpp.o  -o TP3_exo3bis ../imgui/libimgui.a ../glimac/libglimac.a -lSDL2 -lGL -lGLU -lGLEW 

@@ -6,9 +6,13 @@ namespace glimac {
         uMVPMatrix = glGetUniformLocation(program->getGLId(), "uMVPMatrix");
         uMVMatrix = glGetUniformLocation(program->getGLId(), "uMVMatrix");
 
+        // Lumieres Point
         uNbPoint = glGetUniformLocation(program->getGLId(), "uNbPoint");
         uJourNuit = glGetUniformLocation(program->getGLId(), "uJourNuit");
         uPointPos = glGetUniformLocation(program->getGLId(), "uPointPos");
+
+        uTexture = glGetUniformLocation(program->getGLId(), "uTexture");
+
 
         // Active le test de profondeur GPU
         glEnable(GL_DEPTH_TEST);
@@ -23,9 +27,12 @@ namespace glimac {
         MVMatrix = ViewMatrix*CubeModelMatrix;
 
         // Renvoi des valeurs des variables uniformes de lumieres
-        glUniform1f(uNbPoint,  lum.nbPoint);
-        glUniform1f(uJourNuit,  lum.directional);
-        glUniform3fv(uPointPos,  lum.nbPoint, glm::value_ptr(lum.pointsPositions[0]));
+        glUniform1f(uNbPoint, lum.getNbPoint());
+        glUniform1f(uJourNuit, lum.getDirectional());
+        glUniform3fv(uPointPos, lum.getNbPoint(), glm::value_ptr(lum.pointsPositions[0]));
+
+        // Texture
+        glUniform1i(uTexture, 0);
 
         glUniformMatrix4fv(uMVPMatrix, 1, GL_FALSE, glm::value_ptr(ProjMatrix*MVMatrix));
         glUniformMatrix4fv(uMVMatrix, 1, GL_FALSE, glm::value_ptr(MVMatrix));

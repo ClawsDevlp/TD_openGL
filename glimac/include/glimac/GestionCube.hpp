@@ -4,17 +4,19 @@
 #include <vector>
 #include <iostream>
 #include "glimac/common.hpp"
+#include <glimac/Texture.hpp>
 
 namespace glimac {
 
      class GestionCube {
 
-          public:
-          GestionCube();
-          ~GestionCube() = default;
-
+          private:
           std::vector<glm::vec3> cubesPositions;
           std::vector<glm::vec3> cubesCouleurs;
+          std::vector<int> cubesTextures;
+
+          //Texture* textureCube;          
+          int type;
 
           GLuint positionVbo;
           GLuint vao;
@@ -22,6 +24,18 @@ namespace glimac {
           GLuint positionSommetVbo;
           GLuint normaleVbo;
           GLuint couleurVbo;
+          GLuint textureVbo;
+
+          public:
+          GestionCube();
+          ~GestionCube() = default;
+
+          // Getters et setters
+          int getCubesPositionsSize();
+          glm::vec3 getCubesPositions(int index);
+          void setCubesPositions(int index, glm::vec3 donnee);
+          glm::vec3 getCubesCouleurs(int index);
+          void setCubesCouleurs(int index, glm::vec3 donnee);
 
           // Initialisation vbos et vao de tous les cubes
           void initialisationCube();
@@ -47,6 +61,10 @@ namespace glimac {
           glm::vec3 trouvCouleur(glm::vec3 position);
           // Modifie la couleur d'un cube
           void modifCouleur(glm::vec3 position, glm::vec3 couleur);
+          // Change le type de cube (texture)
+          void changeType(glm::vec3 position, int nType);
+          // Ajoute texture au cube
+          Texture* ajoutTexture();
      };
     
 }

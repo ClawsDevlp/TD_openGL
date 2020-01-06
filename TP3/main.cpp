@@ -40,6 +40,9 @@ int main(int argc, char** argv) {
     Interface interface;
     interface.initImgui(&windowManager);
 
+    //charger les textures
+    //Texture texture(applicationPath.dirPath() + "assets/textures/MoonMap.jpg");
+
     // Charger les shaders
     Program program = loadProgram(applicationPath.dirPath() + argv[1], applicationPath.dirPath() + argv[2]);
     program.use();
@@ -55,7 +58,7 @@ int main(int argc, char** argv) {
     Scene scene;
     Cursor cursor;
 
-    gestionator.ajoutCube(glm::vec3(0,0,0), glm::vec3(0,0,3));
+    gestionator.ajoutCube(glm::vec3(0,0,0), glm::vec3(0,0,1));
 
     reglage.initMatrice(&program);
 
@@ -100,7 +103,7 @@ int main(int argc, char** argv) {
 
                     // Ajout cube
                     if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-                        gestionator.ajoutCube(cursor.coord, glm::vec3(0,1,0));
+                        gestionator.ajoutCube(cursor.getCoord(), glm::vec3(0,1,0));
                     }
 
                     // Initialisation scene
@@ -124,17 +127,17 @@ int main(int argc, char** argv) {
 
                     // Rajout cube à une colonne (extrud)
                     if (e.key.keysym.scancode == SDL_SCANCODE_E) {
-                        gestionator.extruDigCube(axe, true, cursor.coord);
+                        gestionator.extruDigCube(axe, true, cursor.getCoord());
                     }
 
                     // Creuse colonne
                     if (e.key.keysym.scancode == SDL_SCANCODE_D) {
-                        gestionator.extruDigCube(axe, false, cursor.coord);
+                        gestionator.extruDigCube(axe, false, cursor.getCoord());
                     }
 
                     // Changement couleur
                     if (e.key.keysym.scancode == SDL_SCANCODE_C) {
-                        gestionator.modifCouleur(cursor.coord, glm::vec3(1.,1.,1.));
+                        gestionator.modifCouleur(cursor.getCoord(), glm::vec3(1.,1.,1.));
                     }
             }
         }
@@ -147,7 +150,6 @@ int main(int argc, char** argv) {
         
         gestionator.dessinCube();
         cursor.dessinCursor();
-        //scene.dessinScene();
 
         // Fenetre Imgui
         interface.creationFenetre(&windowManager);

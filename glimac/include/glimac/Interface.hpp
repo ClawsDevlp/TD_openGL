@@ -27,6 +27,5 @@ namespace glimac {
         void fenetreImgui(int* axe, GestionCube* cube, Cursor* cursor, Scene* scene, Lumiere* lum);
         void arretFenetre();
         void stopImgui();
-
     };
 }

@@ -10,7 +10,7 @@ namespace glimac {
 
      class Reglage {
 
-          public:
+          private:
           // Location matrices
           GLint uMVPMatrix;
           GLint uMVMatrix;
@@ -24,6 +24,11 @@ namespace glimac {
           GLint uJourNuit;
           GLint uPointPos;
 
+          // Location texture
+          GLint uTexture;
+
+          public:
+          
           // Méthode
           void initMatrice(Program *program);
           void renvoiMatrice(TrackballCamera camera, Lumiere lum);

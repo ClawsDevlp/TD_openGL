@@ -7,8 +7,12 @@
 namespace glimac {
 
 class TrackballCamera {
+    private:
+    float m_fDistance;
+    float m_fAngleX;
+    float m_fAngleY;
 
-public:
+    public:
     TrackballCamera():
         m_fDistance(22.), m_fAngleX(10.), m_fAngleY(10.) {
     }
@@ -47,10 +51,6 @@ public:
         return ViewMatrix;
     }
 
-private:
-    float m_fDistance;
-    float m_fAngleX;
-    float m_fAngleY;
 };
     
 }
