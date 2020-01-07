@@ -1,31 +1,20 @@
 #include "glimac/rbf.hpp"
 
 namespace glimac {
+
     float phi(const float a){
         return exp(-0.2*a*a);
     }
 
-    // Eigen::MatrixXd values = Eigen::MatrixXd::Zero(20,20){
-    //     for (int i = 0; i < values.rows(); i++){
-    //         for (int j = 0; j < values.cols(); j++){
-    //             /* trouver la valeur */
-    //         }
-            
-    //     }
-        
-    // }
-
     Eigen::VectorXf findOmega(const Eigen::MatrixXf ptsDeControle, const Eigen::VectorXf valeurs){
         Eigen::MatrixXf A = Eigen::MatrixXf::Zero(ptsDeControle.rows(), ptsDeControle.rows());
-        //on rempli la matrice avec les phi de valeurs absolue xi - xj
+        //on remplit la matrice avec les phi de valeurs absolue xi - xj
         for (int i = 0; i < A.rows(); i++){
             for (int j = 0; j < A.cols(); j++){
                 //valeur absolue de la diff de 2 points = la norme
                 A(i,j)= phi((ptsDeControle.row(i)-ptsDeControle.row(j)).norm());
             }
-            
         }
-
         return A.inverse() * valeurs;
     }
 
@@ -50,7 +39,6 @@ namespace glimac {
                 map(i,j) = findValue(i, j, ptsDeControle, w);
             }
         }
-
         return map;
     }
 }
