@@ -50,12 +50,12 @@ void Scene::suppSceneInit(GestionCube* ActualGerant){
 }
 
 void Scene::loadRBFscene(GestionCube* ActualGerant){
-     const int nbPoints = 1;
+     const int nbPoints = 3;
      Eigen::MatrixXd map = Eigen::MatrixXd::Zero(21,21);
      Eigen::MatrixXf ptsDeControle(nbPoints, 2);
-     ptsDeControle << 0,0;
+     ptsDeControle << 10,10,2,3,15,7;
      Eigen::VectorXf valeurs(nbPoints);
-     valeurs << 15;
+     valeurs << 15,-10,5;
 
      map = getMap(ptsDeControle, valeurs);
 
